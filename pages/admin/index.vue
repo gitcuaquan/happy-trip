@@ -1,0 +1,25 @@
+<script setup lang="ts">
+definePageMeta({
+  middleware: ['auth'],
+  title: 'Trang chủ'
+})
+useHead({
+  title: "Trang chủ"
+})
+
+</script>
+
+<template>
+  <div class="row">
+    <div class="col-12">
+      <admin-filter/>
+    </div>
+  </div>
+  <h2>
+    hahah
+  </h2>
+</template>
+
+<style scoped>
+
+</style>
