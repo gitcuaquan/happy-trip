@@ -14,7 +14,7 @@ useHead({
   title: 'Đơn hàng chưa có tài xế'
 })
 const loading = ref(true)
-
+const isMobile = inject('isMobile')
 
 const filter = reactive({
   param: new Param(),
@@ -61,7 +61,7 @@ function onChange(obj: FilterType) {
     </div>
   </div>
   <template v-if="!loading">
-    <div class="row mt-3">
+    <div v-if="!isMobile" class="row mt-3">
       <div class="col-12 overflow-auto py-3 position-relative">
         <div class="card p-3  border-0 shadow-sm ">
           <table v-if="listOrder?.data?.length" class="table">
@@ -90,7 +90,9 @@ function onChange(obj: FilterType) {
               <td>{{ Money(order.price_guest) }}</td>
               <td>{{ Money(order.price) }}</td>
               <td>
-                <span class="badge bg-primary">Không có ghi chú</span>
+                <div style="max-width: 200px;overflow: hidden">
+                    {{order.note || 'Không có ghi chú'}}
+                </div>
               </td>
               <td class="text-center">
                 <button title="Nhận chuyến" class="btn btn-sm btn-outline-success">
@@ -106,6 +108,46 @@ function onChange(obj: FilterType) {
         </div>
       </div>
     </div>
+    <template v-else>
+      <div v-for="order in listOrder.data" class="card p-2 border-0 my-2 shadow-sm">
+        <div class="d-flex align-items-start justify-content-between">
+          <div class="d-flex  flex-column gap-1">
+            <small class="badge border text-dark">{{ order.service.service_name }}</small>
+            <small class="badge bg-info text-dark bg-opacity-10 border border-info">19-02-2024 11:42</small>
+          </div>
+          <div class="d-flex flex-column">
+            <button class="btn text-white btn-primary btn-sm">
+              <small> Nhận chuyến</small>
+            </button>
+            <small class="badge border  mt-1 text-dark">{{ order.short_id }}</small>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex align-items-center  gap-1">
+            <Icon icon="mdi:map-marker-radius" class="fs-3"/>
+            <small>{{ order.departure.city.concat("-").concat(order.departure.district) }}</small>
+          </div>
+          <div class="d-flex align-items-center gap-1">
+            <Icon icon="mdi:map-check-outline" class="fs-3 text-success"/>
+            <small>{{ order.destination.city.concat("-").concat(order.destination.district) }}</small>
+          </div>
+
+          <textarea class="form-control" rows="2" :value="order.note || 'Không có ghi chú'" disabled>
+
+          </textarea>
+         <div class="d-flex">
+           <div class="d-flex align-items-start flex-column  gap-1">
+             <b class="text-nowrap">Cước thu</b>
+             <small>{{ Money(order.price_guest) }}</small>
+           </div>
+           <div class="d-flex ms-auto align-items-start flex-column  gap-1">
+             <b class="text-nowrap">Tài xế nhận</b>
+             <small>{{ Money(order.price) }}</small>
+           </div>
+         </div>
+        </div>
+      </div>
+    </template>
     <div v-if="listOrder?.pagination?.total_page " class="text-end">
       <v-pagination
           v-model="filter.param.page"

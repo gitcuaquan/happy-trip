@@ -115,7 +115,7 @@ async function onSelectDen(obj: any) {
       </div>
       <div class="offcanvas-body">
         <div class="card w-100 shadow-sm border-0 p-lg-3">
-          <div class="row">
+          <div class="row g-2">
             <div class="col-lg-3">
               <input type="text" v-model="objectFilter.keyword" class="form-control h-100" placeholder="Nhập từ khóa">
             </div>

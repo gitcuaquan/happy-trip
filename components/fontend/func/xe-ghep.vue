@@ -23,6 +23,8 @@ interface objPreview {
   destination_dictrict?: string,
   date_of_destination?: string,
   date_of_return?: string,
+  departure_address?:string,
+  destination_address?:string,
 }
 
 const objPreview = reactive<objPreview>({
@@ -153,7 +155,7 @@ async function createOrder() {
           <small>{{ DiemDon }}</small>
         </UiDropdow>
       </div>
-      <input type="text" placeholder="Chi tiết điểm đón" class="form-control mt-2">
+      <input type="text" v-model="objPreview.departure_address" placeholder="Chi tiết điểm đón" class="form-control mt-2">
     </div>
     <!--  Điếm đến  -->
     <div class="col-lg-6">
@@ -162,7 +164,7 @@ async function createOrder() {
           {{ DiemDen }}
         </UiDropdow>
       </div>
-      <input type="text" placeholder="Chi tiết điểm trả" class="form-control mt-2">
+      <input type="text" v-model="objPreview.destination_address" placeholder="Chi tiết điểm trả" class="form-control mt-2">
     </div>
     <!--  Số lượng ghế  -->
     <div class="col-lg-4">
@@ -196,6 +198,9 @@ async function createOrder() {
         <input type="text" v-model="objPreview.phone" class="form-control bg-light border-0" inputmode="numeric"
                placeholder="Số điện thoại">
       </div>
+    </div>
+    <div class="col-12">
+      <input type="text" v-model="objPreview.note" class="form-control" placeholder="Ghi chú cho tài xế">
     </div>
     <div class="col-12">
       <div class="d-flex bg-light align-items-center p-2 border rounded gap-2">
