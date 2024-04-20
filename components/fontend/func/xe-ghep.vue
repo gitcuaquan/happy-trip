@@ -114,31 +114,31 @@ async function onSelectDen(obj: any) {
 
 async function createOrder() {
   try {
-    const orderSave: IBooking = {
-      customer: {
-        full_name: objPreview.full_name,
-        phone: objPreview.phone
-      },
-      departure: {
-        city: objPreview.departure_city,
-        district: objPreview.departure_dictrict,
-        country_code: "VN",
-        country_name: "Việt Nam",
-      },
-      date_of_destination: objPreview.date_of_destination && new Date(objPreview.date_of_destination).getTime(),
-      date_of_return: objPreview.date_of_return && new Date(objPreview.date_of_return).getTime(),
-      destination: {
-        city: objPreview.destination_city,
-        district: objPreview.destination_dictrict,
-        country_code: "VN",
-        country_name: "Việt Nam",
-      },
-      id_service: objPreview.id_service,
-      quantity: 1,
+    // const orderSave: IBooking = {
+    //   customer: {
+    //     full_name: objPreview.full_name,
+    //     phone: objPreview.phone
+    //   },
+    //   departure: {
+    //     city: objPreview.departure_city,
+    //     district: objPreview.departure_dictrict,
+    //     country_code: "VN",
+    //     country_name: "Việt Nam",
+    //   },
+    //   date_of_destination: objPreview.date_of_destination && new Date(objPreview.date_of_destination).getTime(),
+    //   date_of_return: objPreview.date_of_return && new Date(objPreview.date_of_return).getTime(),
+    //   destination: {
+    //     city: objPreview.destination_city,
+    //     district: objPreview.destination_dictrict,
+    //     country_code: "VN",
+    //     country_name: "Việt Nam",
+    //   },
+    //   id_service: objPreview.id_service,
+    //   quantity: 1,
+    //
+    // }
 
-    }
-
-    const res = await new OrderService().createOrder(orderSave)
+    const res = await new OrderService().createOrder(objPreview)
   } catch (e) {
     console.log(e)
   }
@@ -148,15 +148,21 @@ async function createOrder() {
 <template>
   <div class="row g-2 mt-3">
     <div class="col-lg-6">
-      <UiDropdow :data="listCities" @select="onSelectDon">
-        <small>{{ DiemDon }}</small>
-      </UiDropdow>
+      <div>
+        <UiDropdow :data="listCities" @select="onSelectDon">
+          <small>{{ DiemDon }}</small>
+        </UiDropdow>
+      </div>
+      <input type="text" placeholder="Chi tiết điểm đón" class="form-control mt-2">
     </div>
     <!--  Điếm đến  -->
     <div class="col-lg-6">
-      <UiDropdow :data="listCities" @select="onSelectDen">
-        {{ DiemDen }}
-      </UiDropdow>
+      <div>
+        <UiDropdow :data="listCities" @select="onSelectDen">
+          {{ DiemDen }}
+        </UiDropdow>
+      </div>
+      <input type="text" placeholder="Chi tiết điểm trả" class="form-control mt-2">
     </div>
     <!--  Số lượng ghế  -->
     <div class="col-lg-4">

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="vw-100 vh-100 overflow-hidden d-flex">
+  <div class="vw-100 vh-100 d-flex">
     <AppNavLeft/>
     <AppMain>
       <template #header>

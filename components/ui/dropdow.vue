@@ -2,7 +2,7 @@
 
 import {Icon} from "@iconify/vue";
 
-const props = defineProps(['data'])
+const props = defineProps(['data', 'selectonly'])
 const emits = defineEmits(['select'])
 
 function onSelect(id: string, index?: number | string) {
@@ -32,9 +32,9 @@ function onSelect(id: string, index?: number | string) {
         <a role="button" data-bs-toggle="collapse" @click="onSelect(item.id)" :data-bs-target="`#collapse-${item.id}`"
            class="dropdown-item d-flex justify-content-between align-items-center">
           {{ item.name }}
-          <Icon icon="mdi:menu-down"/>
+          <Icon icon="mdi:menu-down" v-if="!selectonly"/>
         </a>
-        <div class="collapse" :id="`collapse-${item.id}`">
+        <div v-if="!selectonly" class="collapse" :id="`collapse-${item.id}`">
           <ul class="list-group  border-0 ps-4 m-0" v-if="item.list">
             <template v-for="(sub,subIndex) in item.list">
               <li v-if="sub.status" role="button" @click="onSelect(item.id,subIndex)"

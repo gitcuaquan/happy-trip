@@ -80,7 +80,7 @@ export class OrderService {
             try {
                 const result = await $fetch(this.baseUrl.concat('/order/list'), {
                     method: "POST",
-                    body: filter?.body,
+                    body: JSON.stringify(filter?.body),
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${this.token.value}`

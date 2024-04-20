@@ -27,6 +27,7 @@ const listMenu = ref<IItemMenu[]>([
       },
       {
         name: "Kí gửi",
+        to:"/admin/order/ki-gui"
       },
       {
         name: "Đã nhận"
