@@ -2,6 +2,7 @@
 
 import {Icon} from "@iconify/vue";
 
+
 const props = defineProps(['data', 'selectonly'])
 const emits = defineEmits(['select'])
 
@@ -12,15 +13,21 @@ function onSelect(id: string, index?: number | string) {
   if (index != undefined) {
     console.log(index)
     valueReturn.push(item.list[index])
+    hide()
   }
   emits('select', valueReturn)
 }
+function hide(){
+  const menu = document.querySelectorAll('.dropdown-menu')
+  Array.from(menu).map(item=>item.classList.remove('show'))
+}
+
 
 </script>
 
 <template>
   <div class="dropdown h-100">
-    <button class="btn border h-100 w-100 d-inline-flex justify-content-center align-items-center gap-1 btn-light "
+    <button class="btn border h-100 w-100 d-inline-flex justify-content-start align-items-center gap-1 btn-light "
             data-bs-auto-close="outside" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <Icon icon="mdi:map-marker-radius"/>
       <slot>

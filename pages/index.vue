@@ -17,6 +17,7 @@ onMounted(() => {
 
 <template>
   <sec-hero/>
+  <fontend-func-slide/>
   <section id="ghep-xe" class="py-5 my-5">
     <div class="container">
       <div class="row g-4">

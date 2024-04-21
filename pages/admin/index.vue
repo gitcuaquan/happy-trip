@@ -12,7 +12,7 @@ useHead({
 <template>
   <div class="row">
     <div class="col-12">
-      <admin-filter/>
+      <h1>Trang chủ nè</h1>
     </div>
   </div>
   <h2>

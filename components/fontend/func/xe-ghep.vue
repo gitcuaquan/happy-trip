@@ -27,6 +27,8 @@ interface IOrder {
   to_address?: string,
 }
 
+const error = ref("")
+
 const objPreview = reactive<IOrder>({})
 const loading = ref(false)
 const tamtinh = ref(0)
@@ -76,6 +78,7 @@ watch(() => [objPreview.service_name, objPreview.date_go, objPreview.date_back, 
 })
 
 async function onPreview() {
+  if(!checkObj()) return
   loading.value = true
   try {
     const res = await new OrderService().preview(objPreview)
@@ -127,20 +130,58 @@ async function onSelectDen(obj: any) {
   }
 }
 
+function checkObj() {
+  var status = true
+  error.value = ""
+  if (!objPreview.from_province) {
+    status = false
+    error.value = 'Vui lòng chọn thành phố đón'
+    return status
+  }
+  if (!objPreview.to_province) {
+    status = false
+    error.value = 'Vui lòng chọn thành phố đến'
+    return status
+  }
+  if (!objPreview.address_from_name) {
+    status = false
+    error.value = 'Vui lòng nhập chi tiết đểm đón'
+    return status
+  }
+  if (!objPreview.address_to_name) {
+    status = false
+    error.value = 'Vui lòng nhập chi tiết đểm đến'
+    return status
+  }
+  if (!objPreview.date_go) {
+    status = false
+    error.value = 'Vui lòng chọn ngày khởi hành'
+    return status
+  }
+  if (!objPreview.phone) {
+    status = false
+    error.value = 'Vui lòng nhập số điện thoại'
+    return status
+  }
+  return status
+}
+
 async function createOrder() {
-  try {
-    objPreview.date_go = convertDate(objPreview.date_go)
-    objPreview.date_back = convertDate(objPreview.date_back)
-    const res = await new OrderService().createOrder(objPreview)
-    useNuxtApp().$toast.success(`<small>Đặt xe thành công</small>`, {
-      dangerouslyHTMLString: true,
-      "theme": "colored",
-    });
-  } catch (e) {
-    useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
-      dangerouslyHTMLString: true,
-      "theme": "colored",
-    });
+  if (checkObj()) {
+    try {
+      objPreview.date_go = convertDate(objPreview.date_go)
+      objPreview.date_back = convertDate(objPreview.date_back)
+      const res = await new OrderService().createOrder(objPreview)
+      useNuxtApp().$toast.success(`<small>Đặt xe thành công</small>`, {
+        dangerouslyHTMLString: true,
+        "theme": "colored",
+      });
+    } catch (e) {
+      useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
+        dangerouslyHTMLString: true,
+        "theme": "colored",
+      });
+    }
   }
 }
 </script>
@@ -163,27 +204,23 @@ async function createOrder() {
           {{ DiemDen }}
         </UiDropdow>
       </div>
-      <input type="text" v-model="objPreview.address_to_name" placeholder="Chi tiết điểm trả"
+      <input type="text" v-model="objPreview.address_to_name" placeholder="Chi tiết điểm đến"
              class="form-control mt-2">
     </div>
     <!--  Số lượng ghế  -->
-    <div class="col-lg-4">
+    <div class="col-lg-6">
       <template v-if="service?.data">
         <select v-model="objPreview.service_name" class="form-control">
-          <option :value="item.service_name" v-for="item in service.data">
+          <option :value="item.name" v-for="item in service.data">
             {{ item.name }}
           </option>
         </select>
       </template>
     </div>
     <!--  Thời gian khởi hành  -->
-    <div class="col-lg-4">
+    <div class="col-lg-6">
       <VueDatePicker placeholder="Chọn ngày đi" auto-apply :min-date="new Date()"
                      v-model="objPreview.date_go"></VueDatePicker>
-    </div>
-    <div class="col-lg-4">
-      <VueDatePicker placeholder="Chọn ngày về" auto-apply :min-date="new Date()"
-                     v-model="objPreview.date_back"></VueDatePicker>
     </div>
     <div class="col-lg-6">
       <div class="input-group border rounded">
@@ -215,7 +252,10 @@ async function createOrder() {
       </div>
     </div>
   </div>
-  <div class="text-center my-4">
+  <div v-if="error" class="p-3 border-danger border bg-danger bg-opacity-10 rounded mt-2">
+    {{ error }}
+  </div>
+  <div class="text-center my-2">
     <button @click="createOrder" :disabled="loading" class="btn btn-primary text-light">
       <Icon icon="entypo:paper-plane"/>
       Đặt xe ngay

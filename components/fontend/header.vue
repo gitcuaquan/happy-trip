@@ -33,6 +33,10 @@ import {Icon} from "@iconify/vue";
               <a href="#" class="nav-link fw-bold fs-6">Đặt Xe</a>
             </li>
             <li class="nav-item">
+
+            <nuxt-link to="page" class="nav-link fw-bold fs-6">Bài viết</nuxt-link>
+            </li>
+            <li class="nav-item">
               <a href="#ghep-xe" class="nav-link fw-bold fs-6">Dịch vụ</a>
             </li>
             <li class="nav-item">

@@ -9,12 +9,15 @@ const typeService = ref(1)
   <section class="min-vh-100 position-relative">
     <div class="position-absolute w-100 h-100 bg-custom">
     </div>
-    <div class="container vh-100 py-5" style="z-index: 10;">
-      <div class="row g-2 h-100 align-items-center">
+    <div class="container min-vh-100 py-5" style="z-index: 10;">
+      <div class="row g-2 min-vh-100 align-items-center">
         <div class="col-xl-7 col-lg-9">
           <div class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
             <fontend-func-xe-ghep />
           </div>
+        </div>
+        <div class="col-xl-5 col-lg-3">
+          <fontend-func-fake-order />
         </div>
       </div>
     </div>
