@@ -19,4 +19,15 @@ export function formatDate(dateTimeString: string): string {
 
     return formattedDate;
 }
+export  function convertDate(date: string): string {
+    const inputDate = new Date(date);
+
+    const year = inputDate.getUTCFullYear();
+    const month = String(inputDate.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(inputDate.getUTCDate()).padStart(2, '0');
+    const hours = String(inputDate.getUTCHours()).padStart(2, '0');
+    const minutes = String(inputDate.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(inputDate.getUTCSeconds()).padStart(2, '0');
+    return  `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
 export  const baseURL="https://demo.olmom.com/api"

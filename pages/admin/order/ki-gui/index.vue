@@ -14,7 +14,7 @@ useHead({
   title: 'Đơn hàng kí gửi'
 })
 const loading = ref(true)
-
+const isMobile = inject('isMobile')
 
 const filter = reactive({
   param: new Param(),
@@ -53,6 +53,11 @@ function onChange(obj: FilterType) {
   getListOrderAsync()
 }
 
+function setColor(name: string){
+  if(name == 'Chờ tài xế') return 'primary'
+  if(name == 'Pending') return 'info'
+  return 'dark'
+}
 
 </script>
 
@@ -63,7 +68,7 @@ function onChange(obj: FilterType) {
     </div>
   </div>
   <template v-if="!loading">
-    <div class="row mt-3">
+    <div class="row mt-3" v-if="!isMobile">
       <div class="col-12 overflow-auto py-3 position-relative">
         <div class="card p-3  border-0 shadow-sm ">
           <table v-if="listOrder?.data?.length" class="table align-middle">
@@ -90,21 +95,31 @@ function onChange(obj: FilterType) {
                 {{ order.customer.full_name }}
                 <p class="m-0 fst-italic">{{ order.customer.phone }}</p>
               </td>
-              <td>{{ order.service.service_name }}</td>
+              <td>{{ order.service.name }}</td>
               <td>{{ order.destination.city.concat("-").concat(order.destination.district) }}</td>
               <td>
                 {{ order.departure.city.concat("-").concat(order.departure.district) }}
               </td>
-              <td>{{ Money(order.price_guest) }}</td>
-              <td>{{ Money(order.price) }}</td>
-              <td>{{ Money(order.price_system) }}</td>
+              <td>{{ Money(order.price_guest || 0) }}</td>
+              <td>{{ Money(order.price || 0) }}</td>
+              <td>{{ Money(order.price_system || 0) }}</td>
               <td>
-                <span class="badge bg-primary"> {{ order.status_name }}</span>
+                <span :class="`badge  bg-${setColor(order.status_name)}`"> {{
+                    order.status_name == 'Pending' ? 'Đang tiến hành ' : order.status_name
+                  }}</span>
               </td>
               <td class="text-center">
-                <button title="Nhận chuyến" class="btn btn-sm btn-outline-success">
-                  <Icon icon="mdi:car-2-plus" class="fs-6"/>
-                </button>
+                <div class="dropdown">
+                  <button class="btn btn-outline-secondary p-1" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                    <Icon icon="mdi:settings-outline" class="fs-5"/>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><nuxt-link class="dropdown-item" :to="`/admin/order/ki-gui/${order.id}?preview=true`">Xem chi tiết</nuxt-link></li>
+                    <li v-if="order.status_type == 0"><a class="dropdown-item" href="#">Chỉnh sửa</a></li>
+                    <li v-if="order.status_type == 0"><a class="dropdown-item text-danger" href="#">Hủy chuyến</a></li>
+                  </ul>
+                </div>
               </td>
             </tr>
             </tbody>
@@ -115,6 +130,53 @@ function onChange(obj: FilterType) {
         </div>
       </div>
     </div>
+    <template v-else>
+      <div v-for="order in listOrder.data" class="card p-2 border-0 my-2 shadow-sm">
+        <div class="d-flex align-items-start justify-content-between">
+          <div class="d-flex  flex-column gap-1">
+            <span :class="`badge  bg-${setColor(order.status_name)}`"> {{
+                order.status_name == 'Pending' ? 'Đang tiến hành ' : order.status_name
+              }}</span>
+            <small class="badge border text-dark">{{ order.service.service_name }}</small>
+          </div>
+          <div class="d-flex flex-column">
+            <button class="btn text-white btn-primary btn-sm">
+              <small>Hủy chuyến</small>
+            </button>
+            <small class="badge border  mt-1 text-dark">{{ order.short_id }}</small>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex align-items-center  gap-1">
+            <Icon icon="raphael:customer" class="fs-3"/>
+            <small>{{ order.customer.full_name }} (<b>{{ order.customer.phone ?? 'không cung cấp' }}</b>)</small>
+          </div>
+          <div class="d-flex align-items-center  gap-1">
+            <Icon icon="mdi:map-marker-radius" class="fs-3" style="color:#0a5ae6;"/>
+            <small>{{ order.departure.city.concat("-").concat(order.departure.district) }}</small>
+          </div>
+          <div class="d-flex align-items-center gap-1">
+            <Icon icon="mdi:map-check-outline" class="fs-3 text-success"/>
+            <small>{{ order.destination.city.concat("-").concat(order.destination.district) }}</small>
+          </div>
+          <div class="d-flex border-top pt-2 gap-2">
+            <div class="d-flex align-items-start flex-column  gap-1">
+              <b class="text-nowrap">Cước thu</b>
+              <small>{{ Money(order.price_guest) }}</small>
+            </div>
+            <div class="d-flex ms-auto align-items-start flex-column  gap-1">
+              <b class="text-nowrap">Tài xế nhận</b>
+              <small>{{ Money(order.price) }}</small>
+            </div>
+            <div class="d-flex ms-auto align-items-start flex-column  gap-1">
+              <b class="text-nowrap">Hoa hồng</b>
+              <small>{{ Money(order.net_profit) }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
     <div v-if="listOrder?.pagination?.total_page " class="text-end">
       <v-pagination
           v-model="filter.param.page"

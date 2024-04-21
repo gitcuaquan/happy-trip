@@ -111,17 +111,54 @@ export class OrderService {
     createOrder(order: IBooking) {
         return new Promise(async (resolve, reject) => {
             try {
-                const result = await $fetch(this.baseUrl.concat('/order/hook-v1'), {
+                const result = await $fetch(this.baseUrl.concat('/order/hook'), {
                     method: "POST",
                     params: {
-                        secret: "quankunsiphong"
+                        secret: "123"
                     },
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${this.token.value}`
                     },
-                    body: {
-                        quicker: order
+                    body: order,
+                })
+                resolve(result)
+            } catch (e) {
+                reject(e);
+            }
+        })
+    }
+    acceptOrder(id:string){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await $fetch(this.baseUrl.concat(`/order/${id}/partner`), {
+                    method: "PUT",
+                    params: {
+                        add:true
+                    },
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${this.token.value}`
+                    },
+                })
+                resolve(result)
+            } catch (e) {
+                useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
+                    dangerouslyHTMLString: true,
+                    "theme": "colored",
+                });
+                reject(e);
+            }
+        })
+    }
+    detail(id:string){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await $fetch(this.baseUrl.concat('/order/'+id), {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${this.token.value}`
                     },
                 })
                 resolve(result)
@@ -130,5 +167,4 @@ export class OrderService {
             }
         })
     }
-
 }

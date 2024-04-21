@@ -17,7 +17,7 @@ const loading = ref(true)
 const isMobile = inject('isMobile')
 
 const filter = reactive({
-  param: new Param(),
+  param: new Param({sort_by:'date_of_destination_desc'}),
   body: new FilterType({have_partner: false})
 })
 
@@ -50,6 +50,16 @@ function onChange(obj: FilterType) {
   filter.body = obj
   getListOrderAsync()
 }
+function acceptOrder(id:string){
+  const res = confirm("Bạn muốn nhận đơn hàng này")
+  if(res){
+    try {
+        new OrderService().acceptOrder(id)
+    }catch (e) {
+      console.log(e)
+    }
+  }
+}
 
 
 </script>
@@ -81,7 +91,7 @@ function onChange(obj: FilterType) {
             <tbody>
             <tr v-for="order in listOrder.data">
               <th scope="row">{{ order.short_id }}</th>
-              <td>{{ order.service.service_name }}</td>
+              <td>{{ order.service.name }}</td>
               <td>
                 {{ order.departure.city.concat("-").concat(order.departure.district) }}
               </td>
@@ -95,7 +105,7 @@ function onChange(obj: FilterType) {
                 </div>
               </td>
               <td class="text-center">
-                <button title="Nhận chuyến" class="btn btn-sm btn-outline-success">
+                <button title="Nhận chuyến" @click="acceptOrder(order.id!)" class="btn btn-sm btn-outline-success">
                   <Icon icon="mdi:car-2-plus" class="fs-6"/>
                 </button>
               </td>
@@ -113,10 +123,10 @@ function onChange(obj: FilterType) {
         <div class="d-flex align-items-start justify-content-between">
           <div class="d-flex  flex-column gap-1">
             <small class="badge border text-dark">{{ order.service.service_name }}</small>
-            <small class="badge bg-info text-dark bg-opacity-10 border border-info">19-02-2024 11:42</small>
+            <small class="badge bg-info text-dark bg-opacity-10 border border-info">{{formatDate(order.date_of_destination)}}</small>
           </div>
           <div class="d-flex flex-column">
-            <button class="btn text-white btn-primary btn-sm">
+            <button @click="acceptOrder(order.id!)" class="btn text-white btn-primary btn-sm">
               <small> Nhận chuyến</small>
             </button>
             <small class="badge border  mt-1 text-dark">{{ order.short_id }}</small>
@@ -124,7 +134,7 @@ function onChange(obj: FilterType) {
         </div>
         <div class="d-flex flex-column gap-2">
           <div class="d-flex align-items-center  gap-1">
-            <Icon icon="mdi:map-marker-radius" class="fs-3"/>
+            <Icon style="color:#0a5ae6;" icon="mdi:map-marker-radius" class="fs-3"/>
             <small>{{ order.departure.city.concat("-").concat(order.departure.district) }}</small>
           </div>
           <div class="d-flex align-items-center gap-1">

@@ -20,7 +20,7 @@ export class AuthService {
     login(user: User) {
         return new Promise(async (resolve, reject) => {
             try {
-                const result: { accessToken: string, } = await $fetch(this.baseUrl.concat('/admin/login'), {
+                const result: { accessToken: string, } = await $fetch(this.baseUrl.concat('/partner/login'), {
                     method: "POST",
                     body: JSON.stringify(user),
                 })
