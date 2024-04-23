@@ -15,3 +15,9 @@ onMounted(() => {
   })
 })
 </script>
+
+<style>
+.dp__action_row {
+  justify-content: center !important;
+}
+</style>

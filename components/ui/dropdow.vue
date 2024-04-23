@@ -27,7 +27,7 @@ function hide(){
 
 <template>
   <div class="dropdown h-100">
-    <button class="btn border h-100 w-100 d-inline-flex justify-content-start align-items-center gap-1 btn-light "
+    <button class="btn ps-2 border h-100 w-100 d-inline-flex justify-content-start align-items-center gap-1 btn-light "
             data-bs-auto-close="outside" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <Icon icon="mdi:map-marker-radius"/>
       <slot>

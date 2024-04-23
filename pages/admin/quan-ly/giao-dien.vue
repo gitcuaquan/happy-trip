@@ -67,39 +67,12 @@ async function getBanner() {
 </script>
 
 <template>
-  <div class="row">
+  <div class="row g-3">
     <div class="col-12">
-      <div class="card border-0 mt-3 shadow-sm">
-        <div class="card-header">
-          Quản lý banner
-        </div>
-        <div class="card-body">
-          <div class="row align-items-center row-cols-5 row-cols-2">
-            <div class="col">
-              <label class="btn btn-sm btn-outline-dark mt-2 w-100">
-                Thêm Banner
-                <input type="file" @change="addBanner" class="d-none">
-              </label>
-            </div>
-            <div class="col" v-for="image in listImage">
-             <div class="card p-2">
-               <div class="ratio ratio-16x9">
-                 <img class="w-100" :src="image" alt="">
-               </div>
-               <div class="d-flex gap-3  mt-2">
-                 <label class="btn btn-sm btn-outline-dark w-100">
-                   Thay Banner
-                   <input type="file" @change="(e)=>onChanged(e,image)" class="d-none">
-                 </label>
-                 <button @click="deleteBaner(image)" class="btn text-nowrap btn-sm btn-outline-danger">
-                   Xóa banner
-                 </button>
-               </div>
-             </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <admin-manager-banner />
+    </div>
+    <div class="col-12">
+      <admin-manager-hero />
     </div>
   </div>
 </template>

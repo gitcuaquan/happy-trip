@@ -1,23 +1,39 @@
 <script setup lang="ts">
 
-import {Icon} from "@iconify/vue";
+interface IDB {
+  banner?: string[];
+  index_banner?: string
+}
 
-const typeService = ref(1)
+const image = ref("/img/banner.png")
+
+const DB = ref<IDB>({})
+getDb(() => {
+  image.value = DB.value.index_banner || "/img/banner.png"
+})
+
+async function getDb(callback: () => void) {
+  const data = await $fetch('/api/json')
+  if (data) {
+    DB.value = data
+    callback()
+  }
+}
 </script>
 
 <template>
   <section class="min-vh-100 position-relative">
-    <div class="position-absolute w-100 h-100 bg-custom">
+    <div class="position-absolute w-100 h-100 bg-custom" :style="`background-image:url('${image}')`">
     </div>
     <div class="container min-vh-100 py-5" style="z-index: 10;">
       <div class="row g-2 min-vh-100 align-items-center">
         <div class="col-xl-7 col-lg-9">
           <div class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
-            <fontend-func-xe-ghep />
+            <fontend-func-xe-ghep/>
           </div>
         </div>
         <div class="col-xl-5 col-lg-3">
-          <fontend-func-fake-order />
+          <fontend-func-fake-order/>
         </div>
       </div>
     </div>
@@ -31,7 +47,6 @@ const typeService = ref(1)
 
 .bg-custom {
   background: black;
-  background-image: url('/img/banner.png');
   transition: 0.4s;
   background-size: cover;
   background-position: center;

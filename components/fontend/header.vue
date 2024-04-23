@@ -21,7 +21,7 @@ import {Icon} from "@iconify/vue";
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container">
         <nuxt-link to="/">
-          <img src="/img/logohpt.png" width="200"/>
+          <img src="/img/logohpt.png" class="logo-header" />
         </nuxt-link>
         <button class="btn btn-sm navbar-toggler px-2 border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent">
@@ -30,20 +30,19 @@ import {Icon} from "@iconify/vue";
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav gap-lg-5 ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <nuxt-link to="/" class="nav-link fw-bold fs-6">Đặt Xe</nuxt-link>
+              <nuxt-link to="/#" class="nav-link fw-bold fs-6">Đặt Xe</nuxt-link>
             </li>
             <li class="nav-item">
-
-            <nuxt-link to="page" class="nav-link fw-bold fs-6">Bài viết</nuxt-link>
+              <nuxt-link to="page" class="nav-link fw-bold fs-6">Bài viết</nuxt-link>
             </li>
             <li class="nav-item">
-              <a href="#ghep-xe" class="nav-link fw-bold fs-6">Dịch vụ</a>
+              <nuxt-link to="/#ghep-xe" class="nav-link fw-bold fs-6">Dịch vụ</nuxt-link>
             </li>
             <li class="nav-item">
-              <a href="#gioi-thieu" class="nav-link fw-bold fs-6">Giới thiệu</a>
+              <nuxt-link to="/#gioi-thieu" class="nav-link fw-bold fs-6">Giới thiệu</nuxt-link>
             </li>
             <li class="nav-item">
-              <a href="#lien-he" class="nav-link fw-bold fs-6">Liên hệ</a>
+              <nuxt-link to="/#lien-he" class="nav-link fw-bold fs-6">Liên hệ</nuxt-link>
             </li>
           </ul>
         </div>
@@ -53,6 +52,14 @@ import {Icon} from "@iconify/vue";
 </template>
 
 <style scoped>
+.logo-header{
+  width:200px;
+}
+@media (min-width:768px){
+  .logo-header{
+    width:250px;
+  }
+}
 .nav-item {
   position: relative;
   transition: 0.3s;

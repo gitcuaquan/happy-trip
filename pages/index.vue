@@ -433,45 +433,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
   </section>
   <section class="my-5 py-5">
     <div class="container">
-      <h1 class="text-center text-capitalize">Liên hệ với chúng tôi</h1>
-      <div class="row mt-3 g-3">
-        <div data-aos="fade-up" class="col-lg-4">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Họ và Tên">
-            <label for="floatingInput">Họ và Tên</label>
-          </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="100" class="col-lg-4">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="Email ">
-            <label for="floatingInput">Email</label>
-          </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="110" class="col-lg-4">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Họ và Tên">
-            <label for="floatingInput">Số điện thoại</label>
-          </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="130" class="col-12">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Họ và Tên">
-            <label for="floatingInput">Tiêu đề liên hệ</label>
-          </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="150" class="col-12">
-          <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                      style="height: 100px"></textarea>
-            <label for="floatingTextarea2">Nội dung</label>
-          </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="200">
-          <button class="btn btn-dark">
-            Gửi Liên Hệ
-          </button>
-        </div>
-      </div>
+      <fontend-func-lien-he />
     </div>
   </section>
 </template>

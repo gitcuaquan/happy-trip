@@ -17,6 +17,7 @@
     "@vueup/vue-quill": "^1.2.0",
     "bootstrap": "^5.3.3",
     "nuxt": "^3.11.2",
+    "nuxt-mail": "^5.0.1",
     "sass": "^1.75.0",
     "sass-loader": "^14.2.0",
     "vue": "^3.4.21",

@@ -29,7 +29,7 @@ interface IOrder {
 
 const error = ref("")
 
-const objPreview = reactive<IOrder>({})
+var objPreview = reactive<IOrder>({})
 const loading = ref(false)
 const tamtinh = ref(0)
 const objTemp = ref()
@@ -78,7 +78,7 @@ watch(() => [objPreview.service_name, objPreview.date_go, objPreview.date_back, 
 })
 
 async function onPreview() {
-  if(!checkObj()) return
+  if (!checkObj()) return
   loading.value = true
   try {
     const res = await new OrderService().preview(objPreview)
@@ -176,6 +176,7 @@ async function createOrder() {
         dangerouslyHTMLString: true,
         "theme": "colored",
       });
+      rest()
     } catch (e) {
       useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
         dangerouslyHTMLString: true,
@@ -183,6 +184,19 @@ async function createOrder() {
       });
     }
   }
+}
+
+function rest() {
+  objPreview.date_go = ""
+  objPreview.date_back = ""
+  objPreview.phone = ""
+  objPreview.fullname = ""
+  objPreview.from_province = ""
+  objPreview.to_province = ""
+  objPreview.address_to_name = ""
+  objPreview.address_from_name = ""
+  objPreview.note = ""
+  error.value = ""
 }
 </script>
 
@@ -219,21 +233,30 @@ async function createOrder() {
     </div>
     <!--  Thời gian khởi hành  -->
     <div class="col-lg-6">
-      <VueDatePicker time-picker-inline placeholder="Chọn ngày đi" auto-apply :min-date="new Date()"
-                     v-model="objPreview.date_go"></VueDatePicker>
+      <VueDatePicker time-picker-inline placeholder="Chọn ngày đi" selectText="Xác nhận"
+                     cancelText="Hủy"
+                     :min-date="new Date()"
+                     v-model="objPreview.date_go">
+        <template #action-extra>
+            <span style="font-weight: 600 ">
+               Chọn giờ khởi hành
+            </span>
+        </template>
+      </VueDatePicker>
     </div>
     <div class="col-lg-6">
       <div class="input-group border rounded">
-        <span class="input-group-text bg-light border-0" id="basic-addon1"><Icon icon="mdi:user-tie"
-                                                                                 class="fs-5"/></span>
-        <input type="text" v-model="objPreview.fullname" class="form-control bg-light border-0"
+        <span class="input-group-text bg-light pe-0 ps-2 border-0" id="basic-addon1"><Icon icon="mdi:user-tie"
+                                                                                           class="fs-5"/></span>
+        <input type="text" v-model="objPreview.fullname" class="form-control  bg-light border-0"
                placeholder="Họ và Tên">
       </div>
     </div>
     <div class="col-lg-6">
       <div class="input-group border rounded">
-        <span class="input-group-text bg-light border-0" id="basic-addon1">
-          <Icon icon="mdi:cellphone" class="fs-5"/></span>
+        <span class="input-group-text bg-light pe-0 ps-2 border-0" id="basic-addon1">
+          <Icon icon="mdi:cellphone" class="fs-5"/>
+        </span>
         <input type="text" v-model="objPreview.phone" class="form-control bg-light border-0" inputmode="numeric"
                placeholder="Số điện thoại">
       </div>
@@ -244,7 +267,7 @@ async function createOrder() {
     <div class="col-12">
       <div class="d-flex bg-light align-items-center p-2 border rounded gap-2">
         <Icon icon="mingcute:bill-2-line" class="fs-5"/>
-        Giá chuyển đi:
+        Giá chuyến đi:
         <b v-if="!loading">{{ Money(tamtinh?.price_guest | 0) }}</b>
         <p v-else class="card-text placeholder-glow  m-0">
           <span class="placeholder col-8 p-2" style="width: 100px"></span>

@@ -15,7 +15,7 @@
                   vui vẻ và hạnh phúc.</p>
               </blockquote>
               <figcaption class="blockquote-footer">
-                nhà sàng lập HAPPY TRIP
+                nhà sáng lập HAPPY TRIP
               </figcaption>
             </figure>
           </div>
