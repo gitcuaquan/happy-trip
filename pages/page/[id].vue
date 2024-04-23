@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {PageService} from "~/service/page";
-
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 definePageMeta({
   layout: "blank"
 })
@@ -17,7 +17,7 @@ onMounted(async ()=>{
     <h1 class="my-5 text-center">
       {{page.title}}
     </h1>
-    <div v-html="page.content">
+    <div class="ql-editor" v-html="page.content">
 
     </div>
     <div class="text-center my-3">

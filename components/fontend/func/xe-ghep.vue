@@ -219,7 +219,7 @@ async function createOrder() {
     </div>
     <!--  Thời gian khởi hành  -->
     <div class="col-lg-6">
-      <VueDatePicker placeholder="Chọn ngày đi" auto-apply :min-date="new Date()"
+      <VueDatePicker time-picker-inline placeholder="Chọn ngày đi" auto-apply :min-date="new Date()"
                      v-model="objPreview.date_go"></VueDatePicker>
     </div>
     <div class="col-lg-6">

@@ -12,12 +12,9 @@ useHead({
 <template>
   <div class="row">
     <div class="col-12">
-      <h1>Trang chủ nè</h1>
+      <h1>Trang chủ</h1>
     </div>
   </div>
-  <h2>
-    hahah
-  </h2>
 </template>
 
 <style scoped>

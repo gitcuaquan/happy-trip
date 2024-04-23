@@ -29,18 +29,18 @@ const listMenu = ref<IItemMenu[]>([
         name: "Kí gửi",
         to:"/admin/order/ki-gui"
       },
-      {
-        name: "Đã nhận",
-        to:"/admin/order/da-nhan"
-      }
+      // {
+      //   name: "Đã nhận",
+      //   to:"/admin/order/da-nhan"
+      // }
     ]
   },
   {
     name: "Quản lý",
     icon: "mdi:storefront-outline",
     group: [
-      {name: "Khách hàng",  to:"/admin/quan-ly/khach-hang"},
-      {name: "Bảng giá", to:"/admin/quan-ly/bang-gia"},
+      // {name: "Khách hàng",  to:"/admin/quan-ly/khach-hang"},
+      // {name: "Bảng giá", to:"/admin/quan-ly/bang-gia"},
       {name: "Bài viết", to:"/admin/quan-ly/blog"},
       {name: "Giao diện", to:"/admin/quan-ly/giao-dien"},
     ]

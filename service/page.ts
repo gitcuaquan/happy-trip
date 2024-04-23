@@ -59,4 +59,34 @@ export class PageService {
             }
         })
     }
+    delete(id: string){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await $fetch(this.baseUrl.concat('/page'), {
+                    method: "DELETE",
+                    body:[id]
+                })
+                resolve(result)
+            } catch (e) {
+                reject(e);
+            }
+        })
+    }
+    update(page: Page){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await $fetch(this.baseUrl.concat('/page/'+page.id), {
+                    method: "PUT",
+                    body: page,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${this.token.value}`
+                    }
+                })
+                resolve(result)
+            } catch (e) {
+                reject(e);
+            }
+        })
+    }
 }

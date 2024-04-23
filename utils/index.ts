@@ -63,7 +63,6 @@ export function convertToSlug(str: string) {
     //In slug ra textbox có id “slug”
     return slug
 }
-
 export const baseURL = "https://demo.olmom.com/api"
 //https://demo.olmom.com
 //https://localhost:7215/api

@@ -1,13 +1,26 @@
 <script setup lang="ts">
 import {Icon} from "@iconify/vue"
+import {useGtag} from "#imports";
 
 definePageMeta({
   layout: "blank"
 })
+useHead({
+  title: "Trang chủ HappyTrip"
+})
+// const {initialize,gtag} = useGtag()
 const index = ref(0)
 onMounted(() => {
+  // initialize('G-21GDR6D7X3')
+  //
+  // gtag('event', 'screen_view', {
+  //   app_name: 'Happy Trip',
+  //   screen_name: 'Trang chủ'
+  // })
+  // useTrackEvent('page_view',{
+  //   screen_name:"Trang chủ"
+  // })
   const myCarousel = document.getElementById('carousel1')
-
   myCarousel?.addEventListener('slide.bs.carousel', event => {
     index.value = event.to
   })

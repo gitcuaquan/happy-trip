@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import {PageService} from "~/service/page";
 import {Param} from "~/service/types/filter";
-
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 definePageMeta({
   layout: "blank"
+})
+useHead({
+  title: "Danh sách bài viết"
 })
 const filter = reactive({
   params: new Param({
     page:1,
     limit:12,
-    field:"id,slug,name"
+    field:"id,slug,name,thumbnail,title"
   }),
   body: {}
 })
@@ -17,6 +21,9 @@ const listPage = ref({})
 onMounted(async ()=>{
   listPage.value = await new PageService().getList(filter)
 })
+function updateHandler(page:number){
+
+}
 </script>
 
 <template>
@@ -26,7 +33,7 @@ onMounted(async ()=>{
       <div class="col" v-for="item in listPage.data">
         <div class="card">
           <div class="ratio ratio-1x1">
-            <img src="https://media-cdn-v2.laodong.vn/storage/newsportal/2023/8/26/1233821/Giai-Nhi-1--Nang-Tre.jpg"
+            <img :src="item?.thumbnail"
                  class="card-img-top object-fit-cover" alt="...">
           </div>
           <div class="card-body">
@@ -35,6 +42,16 @@ onMounted(async ()=>{
           </div>
         </div>
       </div>
+    </div>
+    <div v-if="listPage?.pagination?.total_page " class="text-end">
+      <v-pagination
+          v-model="filter.params.page"
+          :pages="listPage?.pagination?.total_page "
+          :range-size="1"
+          class=" p-2 shadow-sm mb-2 d-inline-flex "
+          active-color="#DCEDFF"
+          @update:modelValue="updateHandler"
+      />
     </div>
   </div>
 

@@ -6,6 +6,6 @@ export default defineNuxtConfig({
     transpile: ['@vuepic/vue-datepicker']
   },
   modules: [
-    'nuxt-aos'
+    'nuxt-aos','nuxt-gtag'
   ]
 })

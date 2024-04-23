@@ -30,7 +30,7 @@ import {Icon} from "@iconify/vue";
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav gap-lg-5 ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a href="#" class="nav-link fw-bold fs-6">Đặt Xe</a>
+              <nuxt-link to="/" class="nav-link fw-bold fs-6">Đặt Xe</nuxt-link>
             </li>
             <li class="nav-item">
 
