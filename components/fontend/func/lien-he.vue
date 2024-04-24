@@ -9,15 +9,26 @@ const mailInfo = reactive({
   body:""
 })
 function sendMail() {
-  mail.send({
-    from: mailInfo.full_name,
-    subject: mailInfo.subject,
-    text: `
-      Xin chào tôi là ${mailInfo.full_name} tôi cần liên hệ về vấn đề : ${mailInfo.subject}
-      ${mailInfo.body}
-      Vui lòng liên hệ với tôi thông qua mail: ${mailInfo.mail} | ${mailInfo.phone}
-    `,
-  })
+  try {
+    mail.send({
+      from: mailInfo.full_name,
+      subject: mailInfo.subject,
+      text: `
+        Xin chào tôi là ${mailInfo.full_name} tôi cần liên hệ về vấn đề : ${mailInfo.subject}
+        ${mailInfo.body}
+        Vui lòng liên hệ với tôi thông qua mail: ${mailInfo.mail} | ${mailInfo.phone}
+      `,
+    })
+    useNuxtApp().$toast.success('Gửi liện hệ thành công')
+    mailInfo.body = ""
+    mailInfo.full_name=""
+    mailInfo.mail = ""
+    mailInfo.subject = ""
+    mailInfo.phone = ""
+  } catch (error) {
+    console.log(error);
+    useNuxtApp().$toast.error('Gửi liện hệ không thành công')
+  }
 }
 </script>
 

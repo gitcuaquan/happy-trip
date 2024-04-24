@@ -7,14 +7,14 @@ export default defineNuxtConfig({
   },
   modules: ['nuxt-aos', 'nuxt-gtag', ["nuxt-mail",{
     message: {
-      to: 'tamanhquan2k@gmail.com',
+      to: 'happytripexpress@gmail.com',
     },
     smtp: {
       host: "smtp.gmail.com",
       port: 587,
       auth: {
-        user: 'tamanhquan2k@gmail.com',
-        pass: 'tnjh qeex jqio bdkr',
+        user: 'happytripexpress@gmail.com',
+        pass: 'xbxc lmci kldt lusk',
       },
     },
   }]],
