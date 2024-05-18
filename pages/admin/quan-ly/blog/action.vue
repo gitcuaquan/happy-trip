@@ -81,7 +81,7 @@ async function savePage() {
 
 <template>
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-9 ">
       <div class="card p-3 shadow-sm mt-3 border-0">
         <div class="form-floating mb-3">
           <input v-model="objSave.title" type="text" class="form-control" id="floatingInput"
@@ -102,14 +102,12 @@ async function savePage() {
         <div v-if="objSave.thumbnail">
           <img :src="objSave.thumbnail" class="w-100 object-fit-contain" alt="">
         </div>
+        <div class="mt-3 text-end">
+          <button @click="savePage()" class="btn-primary btn text-light">
+            Lưu bài viết
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12 text-end">
-      <button @click="savePage()" class="btn-primary btn text-light">
-        Lưu bài viết
-      </button>
     </div>
   </div>
 

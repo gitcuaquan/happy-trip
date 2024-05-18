@@ -233,13 +233,13 @@ function rest() {
     </div>
     <!--  Thời gian khởi hành  -->
     <div class="col-lg-6">
-      <VueDatePicker time-picker-inline placeholder="Chọn ngày đi" selectText="Xác nhận"
+      <VueDatePicker time-picker-inline placeholder=" Chọn ngày, giờ khởi hành" selectText="Xác nhận"
                      cancelText="Hủy"
                      :min-date="new Date()"
                      v-model="objPreview.date_go">
         <template #action-extra>
             <span style="font-weight: 600 ">
-               Chọn giờ khởi hành
+              Chọn ngày, giờ khởi hành
             </span>
         </template>
       </VueDatePicker>

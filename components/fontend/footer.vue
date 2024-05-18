@@ -5,12 +5,12 @@
 <template>
   <footer class="border-top bg-light pt-5">
     <div class="container">
-      <div class="row g-3 justify-content-center">
+      <div class="row g-3 justify-content-end">
         <div class="col-lg-5 ">
           <div class="d-flex flex-column">
             <img src="/img/logohpt.png" class="w-100" alt="">
             <figure class="text-center">
-              <blockquote class="blockquote">
+              <blockquote class="blockquote fs-6">
                 <p>Tất cả những gì chúng tôi làm là nỗ lực mang đến cho khách hàng một chuyến đi an toàn, thuận tiện,
                   vui vẻ và hạnh phúc.</p>
               </blockquote>
@@ -20,7 +20,7 @@
             </figure>
           </div>
         </div>
-        <div class="col-lg-3 ms-lg-auto">
+        <div class="col-lg-4 mt-5">
           <h5 class="fw-bold text-capitalize">Liên hệ</h5>
           <ul class="list-unstyled m-0">
             <li>
@@ -34,7 +34,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 mt-5">
           <h5 class="fw-bold text-capitalize">Bạn có thể xem</h5>
           <ul class="list-unstyled m-0">
             <li>

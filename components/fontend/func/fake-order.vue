@@ -29,9 +29,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div style="z-index: 9;">
+  <div s>
     <div class="card border-0 p-3 bg-dark bg-opacity-10 shadow-sm"
-         style="backdrop-filter: blur(10px);pointer-events: none">
+         style="backdrop-filter: blur(10px);pointer-events: none;z-index: 1;position: relative">
       <div class="overflow-auto  position-relative" id="style-1" style="height: 400px">
         <ul class="list-unstyled m-0" id="list-customer" :style="`top: ${top}%`">
           <li v-for="item in data" class="mb-3 text-light"

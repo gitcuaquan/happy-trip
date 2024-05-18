@@ -15,6 +15,7 @@ const model = defineModel()
 
 <style>
 .ql-editor {
-  height: 250px !important;
+  min-height: 250px !important;
+  max-height: 500px;
 }
 </style>

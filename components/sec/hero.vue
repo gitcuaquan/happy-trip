@@ -27,12 +27,12 @@ async function getDb(callback: () => void) {
     </div>
     <div class="container min-vh-100 py-5" style="z-index: 10;">
       <div class="row g-2 min-vh-100 align-items-center">
-        <div class="col-xl-7 col-lg-9">
+        <div class="col-xl-7 col-lg-9" style="position: relative;z-index: 9999">
           <div class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
             <fontend-func-xe-ghep/>
           </div>
         </div>
-        <div class="col-xl-5 col-lg-3">
+        <div class="col-xl-5 col-lg-3" >
           <fontend-func-fake-order/>
         </div>
       </div>

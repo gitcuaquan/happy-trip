@@ -42,7 +42,7 @@ onMounted(() => {
             <div>
               <h5 class="mb-0">An toàn trên mọi cung đường</h5>
               <p class="fst-italic m-0">
-                <small>Mọi chuyển đi đều được HappTrip kiểm duyệt trước khi khởi hành</small>
+                <small>Mọi chuyến đi đều được HappTrip kiểm duyệt trước khi khởi hành</small>
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ onMounted(() => {
             <div>
               <h5 class="mb-0">Chi phí minh bạch</h5>
               <p class="fst-italic m-0">
-                <small>Các chi phí đều được niêm yết trên hệ thống và được thông báo trước khới hành</small>
+                <small>Các chi phí đều được niêm yết trên hệ thống và được thông báo trước khởi hành</small>
               </p>
             </div>
           </div>
@@ -287,7 +287,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
               <li data-aos="fade-up"
                   class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
                 <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success"/>
-                <small>Thoải mái như xe nhà. thuận tiện hơn xe khách</small>
+                <small>Thoải mái như xe nhà, thuận tiện hơn xe khách</small>
               </li>
             </ul>
           </div>
@@ -363,7 +363,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
                    data-bs-parent="#camket">
                 <div class="accordion-body">
                   Với những quy định nghiêm túc về niêm yết giá nhằm cung cấp cho khách hàng dịch vụ chất lượng cao và
-                  an toàn . Happy Trip tuân thủ nguyên tắc Khách hàng là số một.
+                  an toàn. Happy Trip tuân thủ nguyên tắc Khách hàng là số một.
                 </div>
               </div>
             </div>
