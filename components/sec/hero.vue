@@ -1,9 +1,17 @@
 <script setup lang="ts">
 
+import {Modal} from "bootstrap";
+
+const myModal = ref()
+
 interface IDB {
   banner?: string[];
   index_banner?: string
 }
+
+onMounted(() => {
+  initModal()
+})
 
 const image = ref("/img/banner.png")
 
@@ -19,6 +27,25 @@ async function getDb(callback: () => void) {
     callback()
   }
 }
+
+onMounted(() => {
+  initModal()
+})
+
+function initModal() {
+  myModal.value = new Modal('#myModal', {
+    keyboard: false,
+    backdrop: "static"
+  })
+}
+
+
+const show = ref(true)
+
+function hideModal() {
+  myModal.value.hide()
+  show.value = true
+}
 </script>
 
 <template>
@@ -28,16 +55,34 @@ async function getDb(callback: () => void) {
     <div class="container min-vh-100 py-5" style="z-index: 10;">
       <div class="row g-2 min-vh-100 align-items-center">
         <div class="col-xl-7 col-lg-9" style="position: relative;z-index: 9999">
-          <div class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
-            <fontend-func-xe-ghep/>
+          <div v-if="show" class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
+            <fontend-func-xe-ghep @success="()=>{myModal.show(); show = false}"/>
           </div>
         </div>
-        <div class="col-xl-5 col-lg-3" >
+        <div class="col-xl-5 col-lg-3">
           <fontend-func-fake-order/>
         </div>
       </div>
     </div>
   </section>
+  <div class="modal" style="z-index: 9999999;" id="myModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="text-center text-success">Thông báo</h5>
+          <div class="ratio ratio-1x1">
+            <img src="https://i.ibb.co/9TsfdxX/Th-nh-c-ng.png" alt="">
+          </div>
+          <p class="text-center">Đặt xe thành công, tài xế sẽ liên lạc với quý khách trong thời gian sớm nhất</p>
+          <div class="text-center">
+            <button @click="hideModal" class="btn btn-success">
+              Đã hiểu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>

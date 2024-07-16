@@ -7,8 +7,8 @@ import '@vuepic/vue-datepicker/dist/main.css'
 import {Service} from "~/service/service";
 import {IBooking, OrderService} from "~/service/order";
 import {convertDate} from "~/utils";
-import obj from "svgo/lib/svgo/css-select-adapter";
-
+import {Modal} from "bootstrap";
+import { vi } from 'date-fns/locale';
 const listCities = ref([])
 const service = ref()
 
@@ -28,8 +28,12 @@ interface IOrder {
 }
 
 const error = ref("")
+const minM = ref(0)
+const minH = ref(0)
 
-var objPreview = reactive<IOrder>({})
+var objPreview = reactive<IOrder>({
+  date_go: new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString()
+})
 const loading = ref(false)
 const tamtinh = ref(0)
 const objTemp = ref()
@@ -49,6 +53,9 @@ const DiemDen = computed(() => {
   return value
 })
 const time = ref()
+const is_check = ref(true)
+
+const emits = defineEmits(['success'])
 
 interface ICity {
   id: string
@@ -57,7 +64,21 @@ interface ICity {
   list?: []
 }
 
+const handleInternal = (date: any) => {
+  const _date = new Date(date)
+  const _thisDate = new Date()
+  if (_date.getDate() == _thisDate.getDate()) {
+    minH.value = _thisDate.getHours()
+    minM.value = _thisDate.getMinutes() + 10
+  } else {
+    minH.value = 0
+    minM.value = 0
+  }
+}
 onMounted(async () => {
+  const date = new Date()
+  minH.value = date.getHours()
+  minM.value = date.getMinutes() + 10
   //@ts-ignore
   listCities.value = await new CityService().getList()
   listCities.value = listCities.value.filter((item: ICity) => item.status == true)
@@ -66,13 +87,19 @@ onMounted(async () => {
 })
 
 watch(() => objPreview.phone, () => {
-  clearTimeout(time.value)
-  time.value = setTimeout(async () => {
-    await onPreview()
-  }, 1000)
+  if (is_check.value) {
+    clearTimeout(time.value)
+    time.value = setTimeout(async () => {
+      await onPreview()
+    }, 1000)
+  }
 })
+watch(() => objPreview, () => {
+  checkObj()
+}, {deep: true})
+
 watch(() => [objPreview.service_name, objPreview.date_go, objPreview.date_back, objPreview.from_province, objPreview.to_province], () => {
-  if (objPreview.date_go) {
+  if (objPreview.date_go && is_check.value) {
     onPreview()
   }
 })
@@ -83,13 +110,7 @@ async function onPreview() {
   try {
     const res = await new OrderService().preview(objPreview)
     objTemp.value = res
-    const prices = res.service.prices
-    const item = prices.find((item: any) => item.departure.city == objPreview.from_province
-        && item.departure.district == objPreview.from_address
-        && item.destination.city == objPreview.to_province
-        && item.destination.district == objPreview.to_address
-    )
-    tamtinh.value = item
+    tamtinh.value = res.price_guest
   } catch (e) {
     useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
       dangerouslyHTMLString: true,
@@ -131,6 +152,7 @@ async function onSelectDen(obj: any) {
 }
 
 function checkObj() {
+  if (is_check.value == false) return
   var status = true
   error.value = ""
   if (!objPreview.from_province) {
@@ -163,8 +185,14 @@ function checkObj() {
     error.value = 'Vui lòng nhập số điện thoại'
     return status
   }
+  if (objPreview.phone.toString().length <= 9 && objPreview.phone.toString().length < 10) {
+    status = false
+    error.value = 'Vui lòng nhập số đúng điện thoại'
+    return status
+  }
   return status
 }
+
 
 async function createOrder() {
   if (checkObj()) {
@@ -172,16 +200,17 @@ async function createOrder() {
       objPreview.date_go = convertDate(objPreview.date_go)
       objPreview.date_back = convertDate(objPreview.date_back)
       const res = await new OrderService().createOrder(objPreview)
-      useNuxtApp().$toast.success(`<small>Đặt xe thành công</small>`, {
-        dangerouslyHTMLString: true,
-        "theme": "colored",
-      });
+      is_check.value = false
       rest()
+      tamtinh.value = 0
+      emits('success')
     } catch (e) {
       useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
         dangerouslyHTMLString: true,
         "theme": "colored",
       });
+    } finally {
+      error.value = ""
     }
   }
 }
@@ -197,14 +226,23 @@ function rest() {
   objPreview.address_from_name = ""
   objPreview.note = ""
   error.value = ""
+  tamtinh.value = 0
 }
+
+function formatDateLocal(time?:any){
+  if (!time) return ''
+  const [date,_time] = time.split(',')
+  const [M,D,Y] = date.split('/')
+  return [[D,M,Y].join('/'),_time].join(',')
+}
+
 </script>
 
 <template>
   <div class="row g-2 mt-3">
     <div class="col-lg-6">
       <div>
-        <UiDropdow :data="listCities" @select="onSelectDon">
+        <UiDropdow :select="objPreview.to_province" :data="listCities" @select="onSelectDon">
           <small>{{ DiemDon }}</small>
         </UiDropdow>
       </div>
@@ -214,7 +252,7 @@ function rest() {
     <!--  Điếm đến  -->
     <div class="col-lg-6">
       <div>
-        <UiDropdow :data="listCities" @select="onSelectDen">
+        <UiDropdow :select="objPreview.from_province" :data="listCities" @select="onSelectDen">
           {{ DiemDen }}
         </UiDropdow>
       </div>
@@ -233,7 +271,10 @@ function rest() {
     </div>
     <!--  Thời gian khởi hành  -->
     <div class="col-lg-6">
-      <VueDatePicker time-picker-inline placeholder=" Chọn ngày, giờ khởi hành" selectText="Xác nhận"
+      <VueDatePicker @internal-model-change="handleInternal" time-picker-inline
+                     :min-time="{ hours: minH, minutes: minM }"
+                     :format-locale="vi"
+                     placeholder=" Chọn ngày, giờ khởi hành" selectText="Xác nhận"
                      cancelText="Hủy"
                      :min-date="new Date()"
                      v-model="objPreview.date_go">
@@ -241,6 +282,9 @@ function rest() {
             <span style="font-weight: 600 ">
               Chọn ngày, giờ khởi hành
             </span>
+        </template>
+        <template #dp-input="{ value, onInput, onEnter, onTab, onClear, onBlur, onKeypress, onPaste, isMenuOpen }">
+          <input type="text" class="form-control" readonly :value="formatDateLocal(value)"/>
         </template>
       </VueDatePicker>
     </div>
@@ -268,14 +312,14 @@ function rest() {
       <div class="d-flex bg-light align-items-center p-2 border rounded gap-2">
         <Icon icon="mingcute:bill-2-line" class="fs-5"/>
         Giá chuyến đi:
-        <b v-if="!loading">{{ Money(tamtinh?.price_guest | 0) }}</b>
+        <b v-if="!loading">{{ Money(tamtinh || 0) }}</b>
         <p v-else class="card-text placeholder-glow  m-0">
           <span class="placeholder col-8 p-2" style="width: 100px"></span>
         </p>
       </div>
     </div>
   </div>
-  <div v-if="error" class="p-3 border-danger border bg-danger bg-opacity-10 rounded mt-2">
+  <div v-if="error && is_check" class="p-3 border-danger border bg-danger bg-opacity-10 rounded mt-2">
     {{ error }}
   </div>
   <div class="text-center my-2">
@@ -291,7 +335,7 @@ function rest() {
     <div>
       <Icon icon="mdi:information-variant-circle" class="fs-4"/>
     </div>
-    Đối với các điểm xa trung tâm sẽ báo phí ngay trước khi khởi hành
+    Giá đi cao tốc và đã bao gồm chi phí cầu đường, bến bãi. Xe sedan hạng B trở lên.
   </div>
 </template>
 

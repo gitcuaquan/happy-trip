@@ -29,7 +29,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <sec-hero/>
+  <client-only>
+    <sec-hero/>
+  </client-only>
   <fontend-func-slide/>
   <section id="ghep-xe" class="py-5 my-5">
     <div class="container">
@@ -79,7 +81,7 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <section  class="py-5 my-5">
+  <section class="py-5 my-5">
     <div class="container h-100">
       <div class="row g-3 h-100 align-items-center">
         <div class="col-lg-7">
@@ -433,7 +435,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
   </section>
   <section class="my-5 py-5">
     <div class="container">
-      <fontend-func-lien-he />
+      <fontend-func-lien-he/>
     </div>
   </section>
 </template>

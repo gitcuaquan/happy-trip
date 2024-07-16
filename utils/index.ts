@@ -22,7 +22,8 @@ export function formatDate(dateTimeString: string): string {
 }
 
 export function convertDate(date: string): string {
-    const inputDate = new Date(date);
+    const _date = new Date(date).getTime() + 8 * 3600000
+    const inputDate = new Date(_date);
 
     const year = inputDate.getUTCFullYear();
     const month = String(inputDate.getUTCMonth() + 1).padStart(2, '0');
@@ -63,6 +64,6 @@ export function convertToSlug(str: string) {
     //In slug ra textbox có id “slug”
     return slug
 }
-export const baseURL = "http://sys.happytrip.vn/api"
+export const baseURL = "https://sys.happytrip.vn/api"
 //https://demo.olmom.com
 //https://localhost:7215/api
