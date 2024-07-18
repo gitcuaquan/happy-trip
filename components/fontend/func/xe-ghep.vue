@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {onMounted} from "vue";
-import {CityService} from "~/service/city";
-import {Icon} from "@iconify/vue";
+import { onMounted } from "vue";
+import { CityService } from "~/service/city";
+import { Icon } from "@iconify/vue";
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
-import {Service} from "~/service/service";
-import {IBooking, OrderService} from "~/service/order";
-import {convertDate} from "~/utils";
-import {Modal} from "bootstrap";
+import { Service } from "~/service/service";
+import { IBooking, OrderService } from "~/service/order";
+import { convertDate } from "~/utils";
+import { Modal } from "bootstrap";
 import { vi } from 'date-fns/locale';
 const listCities = ref([])
 const service = ref()
@@ -96,7 +96,7 @@ watch(() => objPreview.phone, () => {
 })
 watch(() => objPreview, () => {
   checkObj()
-}, {deep: true})
+}, { deep: true })
 
 watch(() => [objPreview.service_name, objPreview.date_go, objPreview.date_back, objPreview.from_province, objPreview.to_province], () => {
   if (objPreview.date_go && is_check.value) {
@@ -116,6 +116,7 @@ async function onPreview() {
       dangerouslyHTMLString: true,
       "theme": "colored",
     });
+    tamtinh.value = 0
   } finally {
     loading.value = false
   }
@@ -196,6 +197,10 @@ function checkObj() {
 
 async function createOrder() {
   if (checkObj()) {
+    if (!objPreview.fullname) {
+      error.value = 'Vui lòng nhập họ tên'
+      return
+    }
     try {
       objPreview.date_go = convertDate(objPreview.date_go)
       objPreview.date_back = convertDate(objPreview.date_back)
@@ -229,11 +234,11 @@ function rest() {
   tamtinh.value = 0
 }
 
-function formatDateLocal(time?:any){
+function formatDateLocal(time?: any) {
   if (!time) return ''
-  const [date,_time] = time.split(',')
-  const [M,D,Y] = date.split('/')
-  return [[D,M,Y].join('/'),_time].join(',')
+  const [date, _time] = time.split(',')
+  const [M, D, Y] = date.split('/')
+  return [[D, M, Y].join('/'), _time].join(',')
 }
 
 </script>
@@ -247,7 +252,7 @@ function formatDateLocal(time?:any){
         </UiDropdow>
       </div>
       <input type="text" v-model="objPreview.address_from_name" placeholder="Chi tiết điểm đón"
-             class="form-control mt-2">
+        class="form-control mt-2">
     </div>
     <!--  Điếm đến  -->
     <div class="col-lg-6">
@@ -256,8 +261,7 @@ function formatDateLocal(time?:any){
           {{ DiemDen }}
         </UiDropdow>
       </div>
-      <input type="text" v-model="objPreview.address_to_name" placeholder="Chi tiết điểm đến"
-             class="form-control mt-2">
+      <input type="text" v-model="objPreview.address_to_name" placeholder="Chi tiết điểm đến" class="form-control mt-2">
     </div>
     <!--  Số lượng ghế  -->
     <div class="col-lg-6">
@@ -272,37 +276,34 @@ function formatDateLocal(time?:any){
     <!--  Thời gian khởi hành  -->
     <div class="col-lg-6">
       <VueDatePicker @internal-model-change="handleInternal" time-picker-inline
-                     :min-time="{ hours: minH, minutes: minM }"
-                     :format-locale="vi"
-                     placeholder=" Chọn ngày, giờ khởi hành" selectText="Xác nhận"
-                     cancelText="Hủy"
-                     :min-date="new Date()"
-                     v-model="objPreview.date_go">
+        :min-time="{ hours: minH, minutes: minM }" :format-locale="vi" placeholder=" Chọn ngày, giờ khởi hành"
+        selectText="Xác nhận" cancelText="Hủy" :min-date="new Date()" v-model="objPreview.date_go">
         <template #action-extra>
-            <span style="font-weight: 600 ">
-              Chọn ngày, giờ khởi hành
-            </span>
+          <span style="font-weight: 600 ">
+            Chọn ngày, giờ khởi hành
+          </span>
         </template>
         <template #dp-input="{ value, onInput, onEnter, onTab, onClear, onBlur, onKeypress, onPaste, isMenuOpen }">
-          <input type="text" class="form-control" readonly :value="formatDateLocal(value)"/>
+          <input type="text" class="form-control" readonly :value="formatDateLocal(value)" />
         </template>
       </VueDatePicker>
     </div>
     <div class="col-lg-6">
       <div class="input-group border rounded">
-        <span class="input-group-text bg-light pe-0 ps-2 border-0" id="basic-addon1"><Icon icon="mdi:user-tie"
-                                                                                           class="fs-5"/></span>
+        <span class="input-group-text bg-light pe-0 ps-2 border-0" id="basic-addon1">
+          <Icon icon="mdi:user-tie" class="fs-5" />
+        </span>
         <input type="text" v-model="objPreview.fullname" class="form-control  bg-light border-0"
-               placeholder="Họ và Tên">
+          placeholder="Họ và Tên">
       </div>
     </div>
     <div class="col-lg-6">
       <div class="input-group border rounded">
         <span class="input-group-text bg-light pe-0 ps-2 border-0" id="basic-addon1">
-          <Icon icon="mdi:cellphone" class="fs-5"/>
+          <Icon icon="mdi:cellphone" class="fs-5" />
         </span>
         <input type="text" v-model="objPreview.phone" class="form-control bg-light border-0" inputmode="numeric"
-               placeholder="Số điện thoại">
+          placeholder="Số điện thoại">
       </div>
     </div>
     <div class="col-12">
@@ -310,7 +311,7 @@ function formatDateLocal(time?:any){
     </div>
     <div class="col-12">
       <div class="d-flex bg-light align-items-center p-2 border rounded gap-2">
-        <Icon icon="mingcute:bill-2-line" class="fs-5"/>
+        <Icon icon="mingcute:bill-2-line" class="fs-5" />
         Giá chuyến đi:
         <b v-if="!loading">{{ Money(tamtinh || 0) }}</b>
         <p v-else class="card-text placeholder-glow  m-0">
@@ -324,7 +325,7 @@ function formatDateLocal(time?:any){
   </div>
   <div class="text-center my-2">
     <button @click="createOrder" :disabled="loading" class="btn btn-primary text-light">
-      <Icon icon="entypo:paper-plane"/>
+      <Icon icon="entypo:paper-plane" />
       Đặt xe ngay
       <div v-if="loading" class="spinner-border spinner-border-sm text-light" role="status">
         <span class="visually-hidden">Loading...</span>
@@ -333,14 +334,14 @@ function formatDateLocal(time?:any){
   </div>
   <div class="alert alert-info d-flex gap-1 align-items-center" role="alert">
     <div>
-      <Icon icon="mdi:information-variant-circle" class="fs-4"/>
+      <Icon icon="mdi:information-variant-circle" class="fs-4" />
     </div>
     Giá đi cao tốc và đã bao gồm chi phí cầu đường, bến bãi. Xe sedan hạng B trở lên.
   </div>
 </template>
 
 <style scoped>
-.btn-check:checked + .btn {
+.btn-check:checked+.btn {
   color: white !important;
 }
 </style>
