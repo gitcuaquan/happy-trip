@@ -19,6 +19,10 @@
       <img width="30" src="/img/phone-call-icon.svg" alt="">
     </a>
   </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2DNRD76" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </template>
 
 <style scoped></style>

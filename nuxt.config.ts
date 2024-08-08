@@ -30,7 +30,14 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  gtag: {
-    id: "AW-16661686858",
+  gtag:{
+    tags:[
+      {
+        id: "AW-16661686858",
+      },
+      {
+        id: 'GTM-T2DNRD76',
+      },
+    ]
   },
 });
