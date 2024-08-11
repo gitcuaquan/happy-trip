@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {Modal} from "bootstrap";
+import { Modal } from "bootstrap";
 
 const myModal = ref()
 
@@ -53,14 +53,28 @@ function hideModal() {
     <div class="position-absolute w-100 h-100 bg-custom" :style="`background-image:url('${image}')`">
     </div>
     <div class="container min-vh-100 py-5" style="z-index: 10;">
-      <div class="row g-2 min-vh-100 align-items-center">
-        <div class="col-xl-7 col-lg-9" style="position: relative;z-index: 9999">
+      <div class="row mb-4">
+        <div class="col-12" style="position: relative;z-index: 99">
+          <h1 class="text-white text-uppercase text-center">
+            Dịch Vụ Xe Ghép, Xe Tiện Toàn Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn, Uy Tín
+          </h1>
+        </div>
+      </div>
+      <div class="row g-2 align-items-center">
+        <div class="col-xl-7 col-lg-9" style="position: relative;z-index: 99">
           <div v-if="show" class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
-            <fontend-func-xe-ghep @success="()=>{myModal.show(); show = false}"/>
+            <fontend-func-xe-ghep @success="() => { myModal.show(); show = false }" />
           </div>
         </div>
         <div class="col-xl-5 col-lg-3">
-          <fontend-func-fake-order/>
+          <fontend-func-fake-order />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center mt-5" style="position: relative;z-index: 99">
+          <a href="tel:+84 0972970000" class="btn btn-lg btn-light">
+            Liên Hệ Tư Vẫn Ngay
+          </a>
         </div>
       </div>
     </div>
@@ -86,7 +100,7 @@ function hideModal() {
 </template>
 
 <style scoped>
-.btn-check:checked + .btn {
+.btn-check:checked+.btn {
   color: white !important;
 }
 
