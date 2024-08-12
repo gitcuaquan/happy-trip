@@ -21,9 +21,6 @@ onMounted(() => {
   //   screen_name:"Trang chủ"
   // })
   const myCarousel = document.getElementById('carousel1')
-  myCarousel?.addEventListener('slide.bs.carousel', event => {
-    index.value = event.to
-  })
 })
 
 </script>
@@ -32,6 +29,47 @@ onMounted(() => {
   <client-only>
     <sec-hero/>
   </client-only>
+  <section class="py-5 my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-5">
+          <h2 class="text-center">
+            Dịch Vụ Xe Ghép Chuyến Hà Nội - Hải Phòng - Quảng Ninh
+          </h2>
+        </div>
+        <div class="col-lg-4">
+          <div class="card border-0">
+              <img src="/img/a01.png" class="card-img-top"  alt="">
+            <div class="card-body">
+              <a href="tel:+840972970000" class="btn btn-primary">
+                Liên Hệ Ngay
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card border-0">
+            <img src="/img/a02.png" class="card-img-top"  alt="">
+            <div class="card-body">
+              <a href="tel:+840972970000" class="btn btn-primary">
+                Liên Hệ Ngay
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card border-0">
+            <img src="/img/a03.png" class="card-img-top"  alt="">
+            <div class="card-body">
+              <a href="tel:+840972970000" class="btn btn-primary">
+                Liên Hệ Ngay
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <fontend-func-slide/>
   <section id="ghep-xe" class="py-5 my-5">
     <div class="container">
@@ -85,10 +123,8 @@ onMounted(() => {
     <div class="container h-100">
       <div class="row g-3 h-100 align-items-center">
         <div class="col-lg-7">
-          <div data-aos="fade-up" class="card p-3 border-0  d-flex flex-column justify-content-end shadow-sm"
-               style="height: 400px;background: rgb(241,241,241);
-background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgba(255,109,0,1) 100%);">
-            <img src="/img/BG.svg" class="w-100">
+          <div data-aos="fade-up" class="card p-3  border-0  d-flex flex-column justify-content-end">
+            <img src="/img/bg.png" class="w-100">
             <h1 class="text-center text-lg-start">Dịch vụ ghép xe</h1>
             <p class="fst-italic text-center text-lg-start">
               Với sự riêng tư vừa đủ, một chuyến đi an toàn, tiết kiệm, sự thuận tiện đón đưa tận nhà và với ý nghĩa
@@ -262,8 +298,10 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
   <section id="bao-xe" class="py-5 my-5 bg-cs-2">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
-        <div class="col-lg-6"></div>
-        <div class="col-lg-6">
+        <div class="col-lg-7">
+          <img src="/img/bao-xe.png" class="w-100" alt="">
+        </div>
+        <div class="col-lg-5">
           <div data-aos="fade-up" class="card  shadow-sm p-3 border-0">
             <h1> Dịch Vụ Bao Xe</h1>
             <p class="fst-italic">
@@ -297,7 +335,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
       </div>
     </div>
   </section>
-  <section data-aos="fade-up" class="py-5 my-5">
+  <section data-aos="fade-up">
     <div class="container">
       <div class="row g-2 align-items-center">
         <div class="col-lg-6">
@@ -377,7 +415,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
   <section id="gioi-thieu" class="py-5 my-5">
     <div class="container">
       <div class="row align-items-center">
-        <div data-aos="fade-up" class="col-lg-5">
+        <div data-aos="fade-up" class="col-lg-7">
           <h1>Giới thiệu về <b class="text-primary">HAPPY</b> <b> TRIP</b></h1>
           <p>Nhiệm vụ của chúng tôi là mang đến cho người tiêu dùng một giải pháp di chuyển thông minh</p>
           <ol>
@@ -397,7 +435,7 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
             tiện trước khi vận hành và không sử dụng điện thoại trong quá trình vận hành xe.</p>
 
         </div>
-        <div data-aos="fade-up" data-aos-delay="100" class="col-lg-7">
+        <div data-aos="fade-up" data-aos-delay="100" class="col-lg-5">
           <img src="/img/a1.png" class="w-100" alt="">
         </div>
       </div>
@@ -428,24 +466,21 @@ background: linear-gradient(0deg, rgba(241,241,241,0.12648809523809523) 40%, rgb
         </div>
       </div>
     </div>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7447.32285326834!2d105.87112900000001!3d21.046229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abd41db4e18d%3A0xcc0a5608f6c39292!2zMTkyIMSQLiBOZ-G7jWMgTMOibSwgTmfhu41jIEzDom0sIExvbmcgQmnDqm4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1713419983698!5m2!1svi!2sus"
-        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
   </section>
   <section class="my-5 py-5">
     <div class="container">
-      <fontend-func-lien-he/>
+      <div class="row">
+        <div class="col-lg-6">
+          <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7447.32285326834!2d105.87112900000001!3d21.046229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abd41db4e18d%3A0xcc0a5608f6c39292!2zMTkyIMSQLiBOZ-G7jWMgTMOibSwgTmfhu41jIEzDom0sIExvbmcgQmnDqm4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1713419983698!5m2!1svi!2sus"
+        width="100%" height="450" style="border:0;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-lg-6">
+          <fontend-func-lien-he/>
+        </div>
+      </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-.bg-cs-2 {
-  min-height: 60vh;
-  background-image: url("/img/h2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-</style>
