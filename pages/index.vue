@@ -1,33 +1,23 @@
 <script setup lang="ts">
-import {Icon} from "@iconify/vue"
-import {useGtag} from "#imports";
+  import { Icon } from "@iconify/vue"
+  import { useGtag } from "#imports";
 
-definePageMeta({
-  layout: "blank"
-})
-useHead({
-  title: "Trang chủ HappyTrip"
-})
-// const {initialize,gtag} = useGtag()
-const index = ref(0)
-onMounted(() => {
-  // initialize('G-21GDR6D7X3')
-  //
-  // gtag('event', 'screen_view', {
-  //   app_name: 'Happy Trip',
-  //   screen_name: 'Trang chủ'
-  // })
-  // useTrackEvent('page_view',{
-  //   screen_name:"Trang chủ"
-  // })
-  const myCarousel = document.getElementById('carousel1')
-})
+  definePageMeta({
+    layout: "blank"
+  })
+  useHead({
+    title: "Trang chủ HappyTrip"
+  })
+  const index = ref(0)
+  onMounted(() => {
+    const myCarousel = document.getElementById('carousel1')
+  })
 
 </script>
 
 <template>
   <client-only>
-    <sec-hero/>
+    <sec-hero />
   </client-only>
   <section class="py-5 my-5">
     <div class="container">
@@ -38,31 +28,31 @@ onMounted(() => {
           </h2>
         </div>
         <div class="col-lg-4">
-          <div class="card border-0">
-              <img src="/img/a01.png" class="card-img-top"  alt="">
-            <div class="card-body">
-              <a href="tel:+840972970000" class="btn btn-primary">
-                Liên Hệ Ngay
+          <div class="card bg-light  border-0">
+            <img src="/img/a01.png" class="card-img-top" alt="">
+            <div class="card-body text-center">
+              <a href="tel:+840972970000" class="btn text-white btn-primary">
+                Liên Hệ Ngay 0972970000
               </a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="card border-0">
-            <img src="/img/a02.png" class="card-img-top"  alt="">
-            <div class="card-body">
-              <a href="tel:+840972970000" class="btn btn-primary">
-                Liên Hệ Ngay
+          <div class="card bg-light border-0">
+            <img src="/img/a02.png" class="card-img-top" alt="">
+            <div class="card-body text-center">
+              <a href="tel:+840972970000" class="btn text-white btn-primary">
+                Liên Hệ Ngay 0972970000
               </a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="card border-0">
-            <img src="/img/a03.png" class="card-img-top"  alt="">
-            <div class="card-body">
-              <a href="tel:+840972970000" class="btn btn-primary">
-                Liên Hệ Ngay
+          <div class="card bg-light border-0">
+            <img src="/img/a03.png" class="card-img-top" alt="">
+            <div class="card-body text-center">
+              <a href="tel:+840972970000" class="btn text-white btn-primary">
+                Liên Hệ Ngay 0972970000
               </a>
             </div>
           </div>
@@ -70,14 +60,14 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <fontend-func-slide/>
-  <section id="ghep-xe" class="py-5 my-5">
+  <fontend-func-slide />
+  <section id="ghep-xe" class="py-lg-5 my-lg-5">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
           <div data-aos="fade-up" class="d-flex gap-2 align-items-center">
             <div class="bg-primary text-light justify-content-center rounded d-flex align-items-center  p-4">
-              <Icon icon="tdesign:map-safety" style="font-size: 30px"/>
+              <Icon icon="tdesign:map-safety" style="font-size: 30px" />
             </div>
             <div>
               <h5 class="mb-0">An toàn trên mọi cung đường</h5>
@@ -90,7 +80,7 @@ onMounted(() => {
         <div class="col-lg-4">
           <div data-aos="fade-up" data-aos-delay="100" class="d-flex gap-2 align-items-center">
             <div class="bg-primary text-light justify-content-center rounded d-flex align-items-center  p-4">
-              <Icon icon="fluent:feed-16-filled" style="font-size: 30px"/>
+              <Icon icon="fluent:feed-16-filled" style="font-size: 30px" />
             </div>
             <div>
               <h5 class="mb-0">Chi phí minh bạch</h5>
@@ -103,7 +93,7 @@ onMounted(() => {
         <div class="col-lg-4">
           <div data-aos="fade-up" data-aos-delay="200" class="d-flex gap-2 align-items-center">
             <div class="bg-primary text-light justify-content-center rounded d-flex align-items-center  p-4">
-              <Icon icon="fluent:fast-acceleration-24-regular" style="font-size: 30px"/>
+              <Icon icon="fluent:fast-acceleration-24-regular" style="font-size: 30px" />
             </div>
             <div>
               <h5 class="mb-0">Di chuyển nhanh chóng</h5>
@@ -119,7 +109,7 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <section class="py-5 my-5">
+  <section class="py-lg-5 my-lg-5">
     <div class="container h-100">
       <div class="row g-3 h-100 align-items-center">
         <div class="col-lg-7">
@@ -135,16 +125,14 @@ onMounted(() => {
         <div class="col-lg-5">
           <div class="px-3">
             <div data-aos="fade-up" class="btn-group rounded-pill border border-dark overflow-hidden w-100 "
-                 role="group"
-                 aria-label="Basic example">
+              role="group" aria-label="Basic example">
               <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0"
-                      :class="`btn  border-0 btn-outline-dark ${index == 0 ?'active' :''}`"
-                      aria-current="true"
-                      aria-label="Slide 1">Dành cho khách hàng
+                :class="`btn  border-0 btn-outline-dark ${index == 0 ? 'active' : ''}`" aria-current="true"
+                aria-label="Slide 1">Dành cho khách hàng
               </button>
               <button type="button" data-bs-target="#carousel1"
-                      :class="`btn border-0  btn-outline-dark ${index == 1 ?'active' :''}`" data-bs-slide-to="1"
-                      aria-label="Slide 2">Dành cho lái xe
+                :class="`btn border-0  btn-outline-dark ${index == 1 ? 'active' : ''}`" data-bs-slide-to="1"
+                aria-label="Slide 2">Dành cho lái xe
               </button>
             </div>
           </div>
@@ -156,13 +144,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
+                          data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           An toàn và chất lượng dịch vụ là số 1
                         </button>
                       </h2>
                       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                           data-bs-parent="#accordionkhach">
+                        data-bs-parent="#accordionkhach">
                         <div class="accordion-body">
                           Là chuyến đi an toàn bởi 100% các tài xế phải trải qua quy trình kiểm tra sức khoẻ, GPLX, thực
                           hành
@@ -175,12 +162,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                           Rõ ràng cước phí trước khi đặt xe
                         </button>
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                           data-bs-parent="#accordionkhach">
+                        data-bs-parent="#accordionkhach">
                         <div class="accordion-body">
                           Mọi hoạt động thanh toán được thống nhất trước khi khởi hành và niêm yết trên hệ thống
                         </div>
@@ -189,12 +176,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                           Đi chung xe nhưng không chậm.
                         </button>
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                           data-bs-parent="#accordionkhach">
+                        data-bs-parent="#accordionkhach">
                         <div class="accordion-body">
                           Với việc áp dụng công nghệ 4.0 và AI vào việc tối ưu tuyến đường theo Phường, Quận giúp thời
                           gian di
@@ -205,12 +192,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="heading4">
                         <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                          data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
                           Phương tiện đa dạng và số lượng lớn
                         </button>
                       </h2>
                       <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
-                           data-bs-parent="#accordionkhach">
+                        data-bs-parent="#accordionkhach">
                         <div class="accordion-body">
                           Các loại xe từ 5 chỗ, 7 chỗ, bán tải với các hình thức ghép ghế và bao xe sẽ mang đến cho
                           khách hàng
@@ -227,13 +214,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
+                          data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           Gia tăng thu nhập, ổn định cuộc sống
                         </button>
                       </h2>
                       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                           data-bs-parent="#accordiontaxe">
+                        data-bs-parent="#accordiontaxe">
                         <div class="accordion-body">
                           Happy Trip sẽ sắp xếp khách hàng trên các xe, tối ưu cung đường di chuyển theo phường quận do
                           đó giảm được các chi phí như: nhiên liệu, thời gian di chuyển trong nội thành, tăng số chuyến
@@ -244,12 +230,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                           Tối ưu cung đường, chi phí vận hành tăng chuyến
                         </button>
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                           data-bs-parent="#accordiontaxe">
+                        data-bs-parent="#accordiontaxe">
                         <div class="accordion-body">
                           Happy Trip sẽ sắp xếp lượng khách phù hợp với khung thời gian, số chỗ ngồi, cung đường di
                           chuyển theo phường quận.
@@ -259,12 +245,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                           Khách hàng có sẵn, yên tâm vận hành
                         </button>
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                           data-bs-parent="#accordiontaxe">
+                        data-bs-parent="#accordiontaxe">
                         <div class="accordion-body">
                           Happy Trip đảm bảo việc kết nối các khách hàng có nhu cầu, sắp xếp các chuyến đi phù hợp với
                           yêu cầu của khách.
@@ -274,12 +260,12 @@ onMounted(() => {
                     <div data-aos="fade-up" class="accordion-item">
                       <h2 class="accordion-header" id="heading4">
                         <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                          data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
                           Lái xe an toàn, kinh doanh bền vũng
                         </button>
                       </h2>
                       <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
-                           data-bs-parent="#accordiontaxe">
+                        data-bs-parent="#accordiontaxe">
                         <div class="accordion-body">
                           Toàn bộ các chuyến đi được điều vận sắp xếp khách với các điểm đón – trả rõ ràng. Tài xế không
                           lo kiếm khách, ghép ghế sẽ an toàn trong quá trình vận hành phương tiện
@@ -295,7 +281,7 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <section id="bao-xe" class="py-5 my-5 bg-cs-2">
+  <section id="bao-xe" class="py-lg-5 my-lg-5 bg-cs-2">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-7">
@@ -310,23 +296,23 @@ onMounted(() => {
             </p>
             <ul class="list-unstyled m-0">
               <li data-aos="fade-up"
-                  class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
-                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success"/>
+                class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
+                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success" />
                 <small>Giá trọn gói, không phát sinh chi phí</small>
               </li>
               <li data-aos="fade-up"
-                  class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
-                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success"/>
+                class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
+                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success" />
                 <small>An toàn, đúng giờ</small>
               </li>
               <li data-aos="fade-up"
-                  class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
-                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success"/>
+                class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
+                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success" />
                 <small>Đáp ứng các nhu cầu với đa dạng loại xe</small>
               </li>
               <li data-aos="fade-up"
-                  class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
-                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success"/>
+                class="p-2 d-flex align-items-center border mb-2 rounded border-primary bg-primary bg-opacity-10 fw-bold ">
+                <Icon icon="mingcute:safety-certificate-fill" class="me-1 fs-4 text-success" />
                 <small>Thoải mái như xe nhà, thuận tiện hơn xe khách</small>
               </li>
             </ul>
@@ -349,13 +335,12 @@ onMounted(() => {
             <div class="accordion-item" data-aos="fade-up">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOnet"
-                        aria-expanded="true" aria-controls="collapseOnet">
+                  data-bs-target="#collapseOnet" aria-expanded="true" aria-controls="collapseOnet">
                   Trở thành thành viên để có thu nhập tốt nhất.
                 </button>
               </h2>
               <div id="collapseOnet" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                   data-bs-parent="#camket">
+                data-bs-parent="#camket">
                 <div class="accordion-body">
                   Tài xế sẽ được sắp xếp lượng khách, chuyến đi tối ưu theo lộ trình phường, quận, tiết kiệm nhiên liệu
                   và thời gian, tăng số chuyến trên ngày, tăng thu nhập.
@@ -365,12 +350,12 @@ onMounted(() => {
             <div class="accordion-item" data-aos="fade-up">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwou" aria-expanded="false" aria-controls="collapseTwou">
+                  data-bs-target="#collapseTwou" aria-expanded="false" aria-controls="collapseTwou">
                   Lái xe an toàn, gia đình hạnh phúc
                 </button>
               </h2>
               <div id="collapseTwou" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                   data-bs-parent="#camket">
+                data-bs-parent="#camket">
                 <div class="accordion-body">
                   Khi tài xế không phải lo tìm kiếm khách hàng, ghép xe sẽ không phải sử dụng điện thoại, zalo… yên tâm
                   tập trung lái xe an toàn.
@@ -380,12 +365,12 @@ onMounted(() => {
             <div class="accordion-item" data-aos="fade-up">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThreeyt" aria-expanded="false" aria-controls="collapseThreeyt">
+                  data-bs-target="#collapseThreeyt" aria-expanded="false" aria-controls="collapseThreeyt">
                   Tài chính văn minh
                 </button>
               </h2>
               <div id="collapseThreeyt" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                   data-bs-parent="#camket">
+                data-bs-parent="#camket">
                 <div class="accordion-body">
                   Làm việc cùng Happy Trip tài xế sẽ nhận được chính sách, quy trình, quy định về cơ chế tài chính rõ
                   ràng minh bạch.
@@ -395,12 +380,12 @@ onMounted(() => {
             <div class="accordion-item" data-aos="fade-up">
               <h2 class="accordion-header" id="headingT">
                 <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseT" aria-expanded="false" aria-controls="collapseT">
+                  data-bs-target="#collapseT" aria-expanded="false" aria-controls="collapseT">
                   Không lo phá giá, chất lượng hàng đầu
                 </button>
               </h2>
               <div id="collapseT" class="accordion-collapse collapse" aria-labelledby="headingT"
-                   data-bs-parent="#camket">
+                data-bs-parent="#camket">
                 <div class="accordion-body">
                   Với những quy định nghiêm túc về niêm yết giá nhằm cung cấp cho khách hàng dịch vụ chất lượng cao và
                   an toàn. Happy Trip tuân thủ nguyên tắc Khách hàng là số một.
@@ -412,7 +397,7 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <section id="gioi-thieu" class="py-5 my-5">
+  <section id="gioi-thieu" class="py-5 my-lg-5">
     <div class="container">
       <div class="row align-items-center">
         <div data-aos="fade-up" class="col-lg-7">
@@ -446,21 +431,21 @@ onMounted(() => {
       <div class="row py-5 g-3">
         <div class="col-lg-4">
           <div class="d-flex gap-2 align-items-center">
-            <Icon icon="uiw:map" class="fs-4"/>
+            <Icon icon="uiw:map" class="fs-4" />
             <b> 47 Nguyễn Tuân, Thanh Xuân,TP.Hà Nội</b>
             <div class="vr d-none d-lg-block ms-auto me-auto"></div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="d-flex gap-2 align-items-center">
-            <Icon icon="mdi:cellphone" class="fs-4 ms-lg-auto"/>
+            <Icon icon="mdi:cellphone" class="fs-4 ms-lg-auto" />
             <b> 0972 97 00 00</b>
             <div class="vr ms-auto d-none d-lg-block me-auto"></div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="d-flex gap-2 align-items-center">
-            <Icon icon="mdi:email-outline" class="fs-4"/>
+            <Icon icon="mdi:email-outline" class="fs-4" />
             <b> happytripexpress@gmail.com</b>
           </div>
         </div>
@@ -473,12 +458,12 @@ onMounted(() => {
       <div class="row">
         <div class="col-lg-6">
           <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7447.32285326834!2d105.87112900000001!3d21.046229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abd41db4e18d%3A0xcc0a5608f6c39292!2zMTkyIMSQLiBOZ-G7jWMgTMOibSwgTmfhu41jIEzDom0sIExvbmcgQmnDqm4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1713419983698!5m2!1svi!2sus"
-        width="100%" height="450" style="border:0;" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7447.32285326834!2d105.87112900000001!3d21.046229!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abd41db4e18d%3A0xcc0a5608f6c39292!2zMTkyIMSQLiBOZ-G7jWMgTMOibSwgTmfhu41jIEzDom0sIExvbmcgQmnDqm4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1713419983698!5m2!1svi!2sus"
+            width="100%" height="450" style="border:0;" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="col-lg-6">
-          <fontend-func-lien-he/>
+          <fontend-func-lien-he />
         </div>
       </div>
     </div>
