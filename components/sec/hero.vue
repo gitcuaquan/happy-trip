@@ -56,7 +56,7 @@ function hideModal() {
       <div class="row mb-4">
         <div class="col-12" style="position: relative;z-index: 99">
           <h1 class="text-white text-uppercase text-center">
-            Dịch Vụ Xe Ghép, Xe Tiện Toàn Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn, Uy Tín
+            Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn, Uy Tín
           </h1>
         </div>
       </div>
@@ -73,7 +73,7 @@ function hideModal() {
       <div class="row">
         <div class="col-12 text-center mt-5" style="position: relative;z-index: 99">
           <a href="tel:+84 0972970000" class="btn btn-lg btn-light">
-            Liên Hệ Tư Vẫn Ngay
+            Liên Hệ Tư Vấn Ngay
           </a>
         </div>
       </div>

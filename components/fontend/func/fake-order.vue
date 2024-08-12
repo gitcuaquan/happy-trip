@@ -36,7 +36,7 @@ onMounted(() => {
         <ul class="list-unstyled m-0" id="list-customer" :style="`top: ${top}%`">
           <li v-for="item in data" class="mb-3 text-light"
               style="font-size: 14px">
-            <small> Khách hàng <b class="text-danger">{{ item.name }}</b> ({{ item.phone }}) đã đặt xe thành
+            <small><b class="text-danger">{{ item.name }}</b> ({{ item.phone }}) đặt xe thành
               công</small>
           </li>
         </ul>
