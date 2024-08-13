@@ -22,20 +22,19 @@ function rederDataFake(length = 10) {
 onMounted(() => {
   data.value = rederDataFake(100)
   setInterval(() => {
-    if(top.value <= -500) top.value = 0
+    if (top.value <= -500) top.value = 0
     top.value = top.value + -1
-  },100)
+  }, 100)
 })
 </script>
 
 <template>
-  <div s>
+  <div>
     <div class="card border-0 p-3 bg-dark bg-opacity-10 shadow-sm"
-         style="backdrop-filter: blur(10px);pointer-events: none;z-index: 1;position: relative">
-      <div class="overflow-auto  position-relative" id="style-1" style="height: 400px">
+      style="backdrop-filter: blur(10px);pointer-events: none;z-index: 1;position: relative">
+      <div class="overflow-auto  position-relative" id="style-1">
         <ul class="list-unstyled m-0" id="list-customer" :style="`top: ${top}%`">
-          <li v-for="item in data" class="mb-3 text-light"
-              style="font-size: 14px">
+          <li v-for="item in data" class="mb-3 text-light" style="font-size: 14px">
             <small><b class="text-danger">{{ item.name }}</b> ({{ item.phone }}) đặt xe thành
               công</small>
           </li>
@@ -46,6 +45,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+#style-1 {
+  height: 400px;
+}
+@media screen and (max-width: 768px) {
+  #style-1 {
+    height: 150px;
+  }
+}
+
 #style-1::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -69,5 +78,4 @@ onMounted(() => {
   top: 100%;
   transition: all 0.2s;
 }
-
 </style>

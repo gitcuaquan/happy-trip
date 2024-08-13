@@ -5,9 +5,8 @@ import { Icon } from "@iconify/vue";
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 import { Service } from "~/service/service";
-import { IBooking, OrderService } from "~/service/order";
+import { OrderService } from "~/service/order";
 import { convertDate } from "~/utils";
-import { Modal } from "bootstrap";
 import { vi } from 'date-fns/locale';
 const listCities = ref([])
 const service = ref()
@@ -75,15 +74,20 @@ const handleInternal = (date: any) => {
     minM.value = 0
   }
 }
-onMounted(async () => {
+onMounted(() => {
   const date = new Date()
   minH.value = date.getHours()
   minM.value = date.getMinutes() + 10
   //@ts-ignore
-  listCities.value = await new CityService().getList()
-  listCities.value = listCities.value.filter((item: ICity) => item.status == true)
-  service.value = await new Service().getList()
-  objPreview.service_name = service.value.data[0].name
+  new CityService().getList((data: any) => {
+    listCities.value = data.filter((item: ICity) => item.status == true)
+  })
+
+  new Service().getList((data: any) => {
+    service.value = data
+    objPreview.service_name = data.data[0].name
+  })
+
 })
 
 watch(() => objPreview.phone, () => {

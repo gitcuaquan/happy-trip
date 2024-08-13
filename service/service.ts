@@ -6,7 +6,7 @@ export class Service {
     constructor() {
     }
 
-    getList() {
+    getList(callBack: Function) {
         return new Promise(async (resolve, reject) => {
             try {
                 const result = await $fetch(this.baseUrl.concat('/service/list'), {
@@ -18,6 +18,7 @@ export class Service {
                     }
                 })
                 resolve(result)
+                callBack(result)
             } catch (e) {
                 reject(e);
             }

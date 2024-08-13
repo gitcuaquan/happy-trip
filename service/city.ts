@@ -13,7 +13,7 @@ export class CityService {
 
     }
 
-    getList() {
+    getList(callBack: Function) {
         return new Promise(async (resolve, reject) => {
             try {
                 const result = await $fetch(this.baseUrl.concat('/city/list'), {
@@ -27,6 +27,7 @@ export class CityService {
                     }
                 })
                 resolve(result)
+                callBack(result)
             } catch (e) {
                 reject(e);
             }

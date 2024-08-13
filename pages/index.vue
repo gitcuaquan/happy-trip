@@ -1,24 +1,18 @@
 <script setup lang="ts">
-  import { Icon } from "@iconify/vue"
-  import { useGtag } from "#imports";
+import { Icon } from "@iconify/vue"
 
-  definePageMeta({
-    layout: "blank"
-  })
-  useHead({
-    title: "Trang chủ HappyTrip"
-  })
-  const index = ref(0)
-  onMounted(() => {
-    const myCarousel = document.getElementById('carousel1')
-  })
-
+definePageMeta({
+  layout: "blank"
+})
+useHead({
+  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
+})
+const index = ref(0)
 </script>
 
 <template>
-  <client-only>
-    <sec-hero />
-  </client-only>
+
+  <sec-hero />
   <section class="py-5 my-5">
     <div class="container">
       <div class="row">

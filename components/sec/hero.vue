@@ -1,17 +1,10 @@
 <script setup lang="ts">
 
-import { Modal } from "bootstrap";
-
-const myModal = ref()
 
 interface IDB {
   banner?: string[];
   index_banner?: string
 }
-
-onMounted(() => {
-  initModal()
-})
 
 const image = ref("/img/banner.png")
 
@@ -27,25 +20,7 @@ async function getDb(callback: () => void) {
     callback()
   }
 }
-
-onMounted(() => {
-  initModal()
-})
-
-function initModal() {
-  myModal.value = new Modal('#myModal', {
-    keyboard: false,
-    backdrop: "static"
-  })
-}
-
-
-const show = ref(true)
-
-function hideModal() {
-  myModal.value.hide()
-  show.value = true
-}
+const showModal = ref(false)
 </script>
 
 <template>
@@ -62,8 +37,8 @@ function hideModal() {
       </div>
       <div class="row g-2 align-items-center">
         <div class="col-xl-7 col-lg-9" style="position: relative;z-index: 99">
-          <div v-if="show" class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
-            <fontend-func-xe-ghep @success="() => { myModal.show(); show = false }" />
+          <div class="card bg-light bg-opacity-75 card-body border-0" style="backdrop-filter: blur(4px)">
+            <fontend-func-xe-ghep v-if="!showModal" @success="() => { showModal = true }" />
           </div>
         </div>
         <div class="col-xl-5 col-lg-3">
@@ -78,25 +53,12 @@ function hideModal() {
         </div>
       </div>
     </div>
+
+    <client-only>
+      <fontend-func-modal-cf v-if="showModal" @hide="() => { showModal = false }" />
+    </client-only>
   </section>
-  <div class="modal" style="z-index: 9999999;" id="myModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-body">
-          <h5 class="text-center text-success">Thông báo</h5>
-          <div class="ratio ratio-1x1">
-            <img src="https://i.ibb.co/9TsfdxX/Th-nh-c-ng.png" alt="">
-          </div>
-          <p class="text-center">Đặt xe thành công, tài xế sẽ liên lạc với quý khách trong thời gian sớm nhất</p>
-          <div class="text-center">
-            <button @click="hideModal" class="btn btn-success">
-              Đã hiểu
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </template>
 
 <style scoped>
