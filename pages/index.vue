@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue"
+  import { Icon } from "@iconify/vue"
 
-definePageMeta({
-  layout: "blank"
-})
-useHead({
-  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
-})
-const index = ref(0)
+  definePageMeta({
+    layout: "blank"
+  })
+  useHead({
+    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
+  })
+  const index = ref(0)
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const index = ref(0)
         </div>
         <div class="col-lg-4">
           <div class="card bg-light  border-0">
-            <img src="/img/a01.png" class="card-img-top" alt="">
+            <img src="/img/ss2/a1.jpg" class="card-img-top" alt="">
             <div class="card-body text-center">
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
@@ -33,7 +33,7 @@ const index = ref(0)
         </div>
         <div class="col-lg-4">
           <div class="card bg-light border-0">
-            <img src="/img/a02.png" class="card-img-top" alt="">
+            <img src="/img/ss2/a3.jpg" class="card-img-top" alt="">
             <div class="card-body text-center">
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
@@ -43,7 +43,7 @@ const index = ref(0)
         </div>
         <div class="col-lg-4">
           <div class="card bg-light border-0">
-            <img src="/img/a03.png" class="card-img-top" alt="">
+            <img src="/img/ss2/a3.jpg" class="card-img-top" alt="">
             <div class="card-body text-center">
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
