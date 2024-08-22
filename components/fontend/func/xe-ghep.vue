@@ -192,7 +192,7 @@ function checkObj() {
   }
   if (objPreview.phone.toString().length <= 9 && objPreview.phone.toString().length < 10) {
     status = false
-    error.value = 'Vui lòng nhập số đúng điện thoại'
+    error.value = 'Số điện thoại không chính xác, vui lòng kiểm tra lại'
     return status
   }
   return status
@@ -340,7 +340,7 @@ function formatDateLocal(time?: any) {
     <div>
       <Icon icon="mdi:information-variant-circle" class="fs-4" />
     </div>
-    Giá đi cao tốc và đã bao gồm chi phí cầu đường, bến bãi. Xe sedan hạng B trở lên.
+    Giá trọn gói đi cao tốc. Xe 5 chỗ, 7 chỗ, bán tải đời mới đón trả tận nơi
   </div>
 </template>
 

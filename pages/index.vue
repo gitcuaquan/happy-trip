@@ -275,7 +275,7 @@
       </div>
     </div>
   </section>
-  <section id="bao-xe" class="py-lg-5 my-lg-5 bg-cs-2">
+  <section id="bao-xe" class="pt-lg-5 mt-lg-5 bg-cs-2">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-7">
@@ -315,10 +315,10 @@
       </div>
     </div>
   </section>
-  <section id="gioi-thieu" class="py-5 my-lg-5">
+  <section id="gioi-thieu" class="pb-5 mb-lg-5">
     <div class="container">
       <div class="row align-items-center">
-        <div data-aos="fade-up" class="col-lg-7">
+        <div data-aos="fade-up" class="col-lg-8">
           <h1>Giới thiệu về <b class="text-primary">HAPPY</b> <b> TRIP</b></h1>
           <p>Nhiệm vụ của chúng tôi là mang đến cho người tiêu dùng một giải pháp di chuyển thông minh</p>
           <ol>
@@ -338,7 +338,7 @@
             tiện trước khi vận hành và không sử dụng điện thoại trong quá trình vận hành xe.</p>
 
         </div>
-        <div data-aos="fade-up" data-aos-delay="100" class="col-lg-5">
+        <div data-aos="fade-up" data-aos-delay="100" class="col-lg-4">
           <img src="/img/a1.png" class="w-100" alt="">
         </div>
       </div>

@@ -6,11 +6,11 @@ interface IDB {
   index_banner?: string
 }
 
-const image = ref("/img/banner.png")
+const image = ref("")
 
 const DB = ref<IDB>({})
 getDb(() => {
-  image.value = DB.value.index_banner || "/img/banner.png"
+  image.value = DB.value.index_banner || ""
 })
 
 async function getDb(callback: () => void) {
@@ -46,7 +46,7 @@ const showModal = ref(false)
         </div>
       </div>
       <div class="row">
-        <div class="col-12 text-center mt-5" style="position: relative;z-index: 99">
+        <div class="col-12 text-center mt-5" style="position: relative;z-index: 10">
           <a href="tel:+84 0972970000" class="btn btn-lg btn-light">
             Liên Hệ Tư Vấn Ngay
           </a>
