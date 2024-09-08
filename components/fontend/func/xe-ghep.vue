@@ -53,6 +53,7 @@ const DiemDen = computed(() => {
 })
 const time = ref()
 const is_check = ref(true)
+const route = useRoute()
 
 const emits = defineEmits(['success'])
 
@@ -74,20 +75,22 @@ const handleInternal = (date: any) => {
     minM.value = 0
   }
 }
+
 onMounted(() => {
+
   const date = new Date()
   minH.value = date.getHours()
   minM.value = date.getMinutes() + 10
   //@ts-ignore
   new CityService().getList((data: any) => {
     listCities.value = data.filter((item: ICity) => item.status == true)
+    acceptCity()
   })
 
   new Service().getList((data: any) => {
     service.value = data
     objPreview.service_name = data.data[0].name
   })
-
 })
 
 watch(() => objPreview.phone, () => {
@@ -107,6 +110,14 @@ watch(() => [objPreview.service_name, objPreview.date_go, objPreview.date_back, 
     onPreview()
   }
 })
+
+function acceptCity() {
+  if (route.path == '/hcm-vun-tau') {
+    const city = ['66c0658f4c700e0b97ebcc15','66c0659c4c700e0b97ebcc16']
+    listCities.value = listCities.value.filter((item: ICity) => city.includes(item.id))
+  }
+}
+
 
 async function onPreview() {
   if (!checkObj()) return

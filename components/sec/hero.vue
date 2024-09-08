@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 
+
 interface IDB {
   banner?: string[];
   index_banner?: string
@@ -31,7 +32,9 @@ const showModal = ref(false)
       <div class="row mb-4">
         <div class="col-12" style="position: relative;z-index: 99">
           <h1 class="text-white text-uppercase text-center">
-            Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn, Uy Tín
+            <slot>
+              Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn, Uy Tín
+            </slot>
           </h1>
         </div>
       </div>
