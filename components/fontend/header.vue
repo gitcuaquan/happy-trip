@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {Icon} from "@iconify/vue";
+import { Icon } from "@iconify/vue";
 </script>
 
 <template>
@@ -8,12 +8,12 @@ import {Icon} from "@iconify/vue";
     <div class="bg-light border-bottom">
       <div class="container d-flex justify-content-center justify-content-lg-end gap-2 py-1">
         <small class="d-flex justify-content-center justify-content-lg-start align-items-center gap-2">
-          <Icon icon="ic:baseline-email" class="fs-5"/>
+          <Icon icon="ic:baseline-email" class="fs-5" />
           HAPPYTRIPEXPRESS@GMAIL.COM
         </small>
         <div class="vr d-lg-block d-none"></div>
         <small class="d-lg-flex d-none justify-content-center justify-content-lg-start align-items-center gap-2">
-          <Icon icon="mdi:phone" class="fs-6"/>
+          <Icon icon="mdi:phone" class="fs-6" />
           HOTLINE : 0972 97 0000
         </small>
       </div>
@@ -24,13 +24,25 @@ import {Icon} from "@iconify/vue";
           <img src="/img/logohpt.png" class="logo-header" />
         </nuxt-link>
         <button class="btn btn-sm navbar-toggler px-2 border-0" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent">
-          <Icon icon="mdi:menu" class="fs-4"/>
+          data-bs-target="#navbarSupportedContent">
+          <Icon icon="mdi:menu" class="fs-4" />
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav gap-lg-5 ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <nuxt-link to="/" class="nav-link fw-bold fs-6">Đặt Xe</nuxt-link>
+              <div class="dropdown">
+                <nuxt-link to="/" class="nav-link fw-bold fs-6 dropdown-toggle" type="button"
+                  data-bs-toggle="dropdown">Đặt Xe</nuxt-link>
+                <ul class="dropdown-menu w-100 border-0" style="width: 250px;">
+                  <nuxt-link to="/" class="nav-link fw-bold fs-6 ">
+                    <small>Toàn quốc</small>
+                  </nuxt-link>
+                  <nuxt-link to="/hcm-vun-tau" class="nav-link text-nowrap fw-bold fs-6 ">
+                    <small>Sài Gòn - Vũng Tàu</small>
+                  </nuxt-link>
+                </ul>
+              </div>
+
             </li>
             <li class="nav-item">
               <nuxt-link to="page" class="nav-link fw-bold fs-6">Chính sách</nuxt-link>
@@ -52,14 +64,16 @@ import {Icon} from "@iconify/vue";
 </template>
 
 <style scoped>
-.logo-header{
-  width:200px;
+.logo-header {
+  width: 200px;
 }
-@media (min-width:768px){
-  .logo-header{
-    width:250px;
+
+@media (min-width:768px) {
+  .logo-header {
+    width: 250px;
   }
 }
+
 .nav-item {
   position: relative;
   transition: 0.3s;

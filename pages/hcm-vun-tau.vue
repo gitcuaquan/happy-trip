@@ -5,7 +5,7 @@ definePageMeta({
   layout: "blank"
 })
 useHead({
-  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hồ Chí Minh - Vũng Tàu Giá Rẻ, An Toàn"
+  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn"
 })
 const index = ref(0)
 </script>
@@ -13,14 +13,14 @@ const index = ref(0)
 <template>
 
   <sec-hero>
-    Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hồ Chí Minh - Vũng Tàu Giá Rẻ, An Toàn, Uy Tín
+    Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn, Uy Tín
   </sec-hero>
   <section class="py-5 my-5">
     <div class="container">
       <div class="row">
         <div class="col-12 mb-5">
           <h2 class="text-center">
-            Dịch Vụ Xe Ghép Chuyến Hồ Chí Minh - Vũng Tàu
+            Dịch Vụ Xe Ghép Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM
           </h2>
         </div>
         <div class="col-lg-4">

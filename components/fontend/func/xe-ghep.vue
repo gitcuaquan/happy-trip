@@ -77,7 +77,6 @@ const handleInternal = (date: any) => {
 }
 
 onMounted(() => {
-
   const date = new Date()
   minH.value = date.getHours()
   minM.value = date.getMinutes() + 10
@@ -113,7 +112,7 @@ watch(() => [objPreview.service_name, objPreview.date_go, objPreview.date_back, 
 
 function acceptCity() {
   if (route.path == '/hcm-vun-tau') {
-    const city = ['66c0658f4c700e0b97ebcc15','66c0659c4c700e0b97ebcc16']
+    const city = ['66c0658f4c700e0b97ebcc15', '66c0659c4c700e0b97ebcc16', '66de1e434c50db19d40c1791']
     listCities.value = listCities.value.filter((item: ICity) => city.includes(item.id))
   }
 }
@@ -179,16 +178,6 @@ function checkObj() {
   if (!objPreview.to_province) {
     status = false
     error.value = 'Vui lòng chọn thành phố đến'
-    return status
-  }
-  if (!objPreview.address_from_name) {
-    status = false
-    error.value = 'Vui lòng nhập chi tiết đểm đón'
-    return status
-  }
-  if (!objPreview.address_to_name) {
-    status = false
-    error.value = 'Vui lòng nhập chi tiết đểm đến'
     return status
   }
   if (!objPreview.date_go) {
