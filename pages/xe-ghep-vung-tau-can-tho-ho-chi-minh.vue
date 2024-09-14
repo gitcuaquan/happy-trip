@@ -5,7 +5,7 @@
     layout: "blank"
   })
   useHead({
-    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Giá Rẻ, An Toàn"
+    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn"
   })
   const index = ref(0)
 </script>
@@ -13,19 +13,19 @@
 <template>
 
   <sec-hero>
-    Dịch Vụ Xe Ghép, Xe Tiện Chuyến Giá Rẻ, An Toàn
+    Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn, Uy Tín
   </sec-hero>
   <section class="py-5 my-5">
     <div class="container">
       <div class="row">
         <div class="col-12 mb-5">
           <h2 class="text-center">
-            Dịch Vụ Xe Ghép, Xe Tiện Chuyến Giá Rẻ, An Toàn
+            Dịch Vụ Xe Ghép Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM
           </h2>
         </div>
         <div class="col-lg-4">
           <div class="card bg-light  border-0">
-            <img src="/img/index/1.jpg" class="card-img-top" alt="">
+            <img src="/img/hcm-vt/1.jpg" class="card-img-top" alt="">
             <div class="card-body text-center">
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
@@ -35,7 +35,7 @@
         </div>
         <div class="col-lg-4">
           <div class="card bg-light border-0">
-            <img src="/img/index/2.jpg" class="card-img-top" alt="">
+            <img src="/img/hcm-vt/2.jpg" class="card-img-top" alt="">
             <div class="card-body text-center">
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
@@ -45,7 +45,7 @@
         </div>
         <div class="col-lg-4">
           <div class="card bg-light border-0">
-            <img src="/img/index/3.jpg" class="card-img-top" alt="">
+            <img src="/img/hcm-vt/3.jpg" class="card-img-top" alt="">
             <div class="card-body text-center">
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000

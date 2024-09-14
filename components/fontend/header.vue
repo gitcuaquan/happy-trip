@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { Icon } from "@iconify/vue";
+  import { Icon } from "@iconify/vue";
 </script>
 
 <template>
@@ -33,12 +33,15 @@ import { Icon } from "@iconify/vue";
               <div class="dropdown">
                 <nuxt-link to="/" class="nav-link fw-bold fs-6 dropdown-toggle" type="button"
                   data-bs-toggle="dropdown">Đặt Xe</nuxt-link>
-                <ul class="dropdown-menu w-100 border-0" style="width: 250px;">
+                <ul class="dropdown-menu border-0">
                   <nuxt-link to="/" class="nav-link fw-bold fs-6 ">
-                    <small>Toàn quốc</small>
+                    <small>Toàn Quốc</small>
                   </nuxt-link>
-                  <nuxt-link to="/hcm-vun-tau" class="nav-link text-nowrap fw-bold fs-6 ">
-                    <small>Sài Gòn - Vũng Tàu</small>
+                  <nuxt-link to="/xe-ghep-ha-noi-hai-phong-quang-ninh" class="nav-link text-nowrap fw-bold fs-6 ">
+                    <small>Hà Nội - Hải Phòng - Quảng Ninh</small>
+                  </nuxt-link>
+                  <nuxt-link to="/xe-ghep-vung-tau-can-tho-ho-chi-minh" class="nav-link text-nowrap fw-bold fs-6 ">
+                    <small>Sài Gòn - Vũng Tàu - Cần Thơ</small>
                   </nuxt-link>
                 </ul>
               </div>
@@ -64,32 +67,32 @@ import { Icon } from "@iconify/vue";
 </template>
 
 <style scoped>
-.logo-header {
-  width: 200px;
-}
-
-@media (min-width:768px) {
   .logo-header {
-    width: 250px;
+    width: 200px;
   }
-}
 
-.nav-item {
-  position: relative;
-  transition: 0.3s;
-}
+  @media (min-width:768px) {
+    .logo-header {
+      width: 250px;
+    }
+  }
 
-.nav-item:hover:after {
-  width: 100%;
-}
+  .nav-item {
+    position: relative;
+    transition: 0.3s;
+  }
 
-.nav-item:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  transition: 0.3s;
-  background: var(--bs-primary);
-}
+  .nav-item:hover:after {
+    width: 100%;
+  }
+
+  .nav-item:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    transition: 0.3s;
+    background: var(--bs-primary);
+  }
 </style>
