@@ -30,8 +30,12 @@ const index = ref(0)
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
-              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu
+              </p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu
+              </p>
             </div>
           </div>
         </div>
@@ -42,8 +46,12 @@ const index = ref(0)
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0">xe tiện chuyến Sài Gòn Cần Thơ</p>
-              <p class="m-0">xe tiện chuyến Cần Thơ Sài Gòn</p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Cần Thơ
+              </p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Cần Thơ Sài Gòn
+              </p>
             </div>
           </div>
         </div>
@@ -54,8 +62,8 @@ const index = ref(0)
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
-              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
+              <p class="m-0"><Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu</p>
+              <p class="m-0"><Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu</p>
             </div>
           </div>
         </div>
@@ -117,7 +125,7 @@ const index = ref(0)
         <div class="col-lg-7">
           <div data-aos="fade-up" class="card p-3  border-0  d-flex flex-column justify-content-end">
             <img src="/img/bg.png" class="w-100">
-            <h1 class="text-center text-lg-start">Dịch vụ ghép xe</h1>
+            <h1 class="text-center text-lg-start">Dịch vụ ghép xe  Bà Rịa, Vũng Tàu - Cần Thơ - HCM</h1>
             <p class="fst-italic text-center text-lg-start">
               Với sự riêng tư vừa đủ, một chuyến đi an toàn, tiết kiệm, sự thuận tiện đón đưa tận nhà và với ý nghĩa
               lớn hơn là bạn đã góp phần hạn chế áp lực giao thông, giảm khí thải bảo vệ môi trường.

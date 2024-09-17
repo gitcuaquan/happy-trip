@@ -1,13 +1,13 @@
 <script setup lang="ts">
-  import { Icon } from "@iconify/vue"
+import { Icon } from "@iconify/vue"
 
-  definePageMeta({
-    layout: "blank"
-  })
-  useHead({
-    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
-  })
-  const index = ref(0)
+definePageMeta({
+  layout: "blank"
+})
+useHead({
+  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
+})
+const index = ref(0)
 </script>
 
 <template>
@@ -27,8 +27,12 @@
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0">xe ghép Hà Nội Hải Phòng</p>
-              <p class="m-0">xe ghép Hải Phòng  Hà Nội</p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Hà Nội Hải Phòng
+              </p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Hải Phòng Hà Nội
+              </p>
             </div>
           </div>
         </div>
@@ -39,8 +43,12 @@
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0">xe ghép Hài Nội Quảng Ninh</p>
-              <p class="m-0">xe ghép Quảng Ninh  Hài Nội</p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Hải Nội Quảng Ninh
+              </p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Quảng Ninh Hải Nội
+              </p>
             </div>
           </div>
         </div>
@@ -51,8 +59,12 @@
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0">xe ghép Quảng Ninh Hải Phòng</p>
-              <p class="m-0">xe ghép Hải Phòng Quảng Ninh</p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Quảng Ninh Hải Phòng
+              </p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Hải Phòng Quảng Ninh
+              </p>
             </div>
           </div>
         </div>
@@ -114,7 +126,7 @@
         <div class="col-lg-7">
           <div data-aos="fade-up" class="card p-3  border-0  d-flex flex-column justify-content-end">
             <img src="/img/bg.png" class="w-100">
-            <h1 class="text-center text-lg-start">Dịch vụ ghép xe</h1>
+            <h1 class="text-center text-lg-start">Dịch vụ ghép xe Hà Nội - Hải Phòng - Quảng Ninh</h1>
             <p class="fst-italic text-center text-lg-start">
               Với sự riêng tư vừa đủ, một chuyến đi an toàn, tiết kiệm, sự thuận tiện đón đưa tận nhà và với ý nghĩa
               lớn hơn là bạn đã góp phần hạn chế áp lực giao thông, giảm khí thải bảo vệ môi trường.
