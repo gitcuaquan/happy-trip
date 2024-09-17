@@ -15,7 +15,7 @@
                   vui vẻ và hạnh phúc.</p>
               </blockquote>
               <figcaption class="blockquote-footer">
-                nhà sáng lập HAPPY TRIP
+                Công ty TNHH 8Express Việt Nam
               </figcaption>
             </figure>
           </div>
@@ -24,7 +24,7 @@
           <h5 class="fw-bold text-capitalize">Liên hệ</h5>
           <ul class="list-unstyled m-0">
             <li>
-              Địa chỉ: 47 Nguyễn Tuân, Thanh Xuân, Hà Nội
+              Địa chỉ: 218 Lĩnh Nam, Hoàng Mai, Hà Nội
             </li>
             <li>
               SĐT: 0972 97 00 00

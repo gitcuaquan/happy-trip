@@ -1,13 +1,13 @@
 <script setup lang="ts">
-  import { Icon } from "@iconify/vue"
+import { Icon } from "@iconify/vue"
 
-  definePageMeta({
-    layout: "blank"
-  })
-  useHead({
-    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn"
-  })
-  const index = ref(0)
+definePageMeta({
+  layout: "blank"
+})
+useHead({
+  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn"
+})
+const index = ref(0)
 </script>
 
 <template>
@@ -30,6 +30,8 @@
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
+              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
+              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
             </div>
           </div>
         </div>
@@ -40,6 +42,8 @@
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
+              <p class="m-0">xe tiện chuyến Sài Gòn Cần Thơ</p>
+              <p class="m-0">xe tiện chuyến Cần Thơ Sài Gòn</p>
             </div>
           </div>
         </div>
@@ -50,6 +54,8 @@
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
+              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
+              <p class="m-0">xe tiện chuyến Sài Gòn Vũng Tàu</p>
             </div>
           </div>
         </div>
