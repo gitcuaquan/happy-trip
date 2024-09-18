@@ -34,9 +34,6 @@
                 <nuxt-link to="/" class="nav-link fw-bold fs-6 dropdown-toggle" type="button"
                   data-bs-toggle="dropdown">Đặt Xe</nuxt-link>
                 <ul class="dropdown-menu border-0">
-                  <nuxt-link to="/" class="nav-link fw-bold fs-6 ">
-                    <small>Toàn Quốc</small>
-                  </nuxt-link>
                   <nuxt-link to="/xe-ghep-ha-noi-hai-phong-quang-ninh" class="nav-link text-nowrap fw-bold fs-6 ">
                     <small>Hà Nội - Hải Phòng - Quảng Ninh</small>
                   </nuxt-link>

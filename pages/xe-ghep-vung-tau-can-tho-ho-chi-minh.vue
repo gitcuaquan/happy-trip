@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue"
+  import { Icon } from "@iconify/vue"
 
-definePageMeta({
-  layout: "blank"
-})
-useHead({
-  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn"
-})
-const index = ref(0)
+  definePageMeta({
+    layout: "blank"
+  })
+  useHead({
+    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM Giá Rẻ, An Toàn"
+  })
+  const index = ref(0)
 </script>
 
 <template>
@@ -34,7 +34,7 @@ const index = ref(0)
                 <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu
               </p>
               <p class="m-0">
-                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Vũng Tàu Sài Gòn
               </p>
             </div>
           </div>
@@ -47,10 +47,10 @@ const index = ref(0)
                 Liên Hệ Ngay 0972970000
               </a>
               <p class="m-0">
-                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Cần Thơ
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe Sài Gòn Cần Thơ
               </p>
               <p class="m-0">
-                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Cần Thơ Sài Gòn
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe Cần Thơ Sài Gòn
               </p>
             </div>
           </div>
@@ -62,8 +62,12 @@ const index = ref(0)
               <a href="tel:+840972970000" class="btn text-white btn-primary">
                 Liên Hệ Ngay 0972970000
               </a>
-              <p class="m-0"><Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu</p>
-              <p class="m-0"><Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu</p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu
+              </p>
+              <p class="m-0">
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe tiện chuyến Sài Gòn Vũng Tàu
+              </p>
             </div>
           </div>
         </div>
@@ -122,17 +126,17 @@ const index = ref(0)
   <section class="py-lg-5 my-lg-5">
     <div class="container h-100">
       <div class="row g-3 h-100 align-items-center">
-        <div class="col-lg-7">
+        <div class="col-lg-6">
           <div data-aos="fade-up" class="card p-3  border-0  d-flex flex-column justify-content-end">
             <img src="/img/bg.png" class="w-100">
-            <h1 class="text-center text-lg-start">Dịch vụ ghép xe  Bà Rịa, Vũng Tàu - Cần Thơ - HCM</h1>
+            <h1 class="text-center text-lg-start">Dịch vụ xe tiện chuyến Sài Gòn - Vũng Tàu - Cần Thơ</h1>
             <p class="fst-italic text-center text-lg-start">
               Với sự riêng tư vừa đủ, một chuyến đi an toàn, tiết kiệm, sự thuận tiện đón đưa tận nhà và với ý nghĩa
               lớn hơn là bạn đã góp phần hạn chế áp lực giao thông, giảm khí thải bảo vệ môi trường.
             </p>
           </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <div class="px-3">
             <div data-aos="fade-up" class="btn-group rounded-pill border border-dark overflow-hidden w-100 "
               role="group" aria-label="Basic example">
@@ -179,7 +183,18 @@ const index = ref(0)
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionkhach">
                         <div class="accordion-body">
-                          Mọi hoạt động thanh toán được thống nhất trước khi khởi hành và niêm yết trên hệ thống
+                          Giá niêm yết trọn gói không phát sinh phụ phí cụ thể:
+                          <ul>
+                            <li>
+                              Xe tiện chuyến Vũng Tàu - Sài Gòn, Sài Gòn - Vũng Tàu giá chỉ từ 750K
+                            </li>
+                            <li>
+                              Xe tiện chuyến Cần Thơ - Sài Gòn, Sài Gòn - Cần Thơ giá chỉ từ 1100k
+                            </li>
+                            <li>
+                              Xe tiện chuyến Bà Rịa - Sài Gòn, Sài Gòn Bà Rịa giá chỉ từ 690k
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -336,7 +351,9 @@ const index = ref(0)
       <div class="row align-items-center">
         <div data-aos="fade-up" class="col-lg-8">
           <h1>Giới thiệu về <b class="text-primary">HAPPY</b> <b> TRIP</b></h1>
-          <p>Nhiệm vụ của chúng tôi là mang đến cho người tiêu dùng một giải pháp di chuyển thông minh</p>
+          <p>Happy Trip - Chuyển xe tiện chuyến Bà Rịa, Vũng Tàu - Cần Thơ - HCM. Nhiệm vụ của chúng tôi là mang đến cho
+            người tiêu
+            dùng một giải pháp di chuyển thông minh</p>
           <ol>
             <li>
               An toàn và thuận tiện, đi chung mà không chậm

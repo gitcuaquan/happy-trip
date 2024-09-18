@@ -123,7 +123,7 @@
   <section class="py-lg-5 my-lg-5">
     <div class="container h-100">
       <div class="row g-3 h-100 align-items-center">
-        <div class="col-lg-7">
+        <div class="col-lg-6">
           <div data-aos="fade-up" class="card p-3  border-0  d-flex flex-column justify-content-end">
             <img src="/img/bg.png" class="w-100">
             <h1 class="text-center text-lg-start">Dịch vụ ghép xe Hà Nội - Hải Phòng - Quảng Ninh</h1>
@@ -133,7 +133,7 @@
             </p>
           </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <div class="px-3">
             <div data-aos="fade-up" class="btn-group rounded-pill border border-dark overflow-hidden w-100 "
               role="group" aria-label="Basic example">
@@ -180,7 +180,18 @@
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionkhach">
                         <div class="accordion-body">
-                          Mọi hoạt động thanh toán được thống nhất trước khi khởi hành và niêm yết trên hệ thống
+                          Giá niêm yết trọn gói không phát sinh phụ phí cụ thể:
+                          <ul>
+                            <li>
+                              Xe ghép Hà Nội Hải Phòng, Hải Phòng Hà Nội giá chỉ từ 360K
+                            </li>
+                            <li>
+                              Xe ghép Hà Nội Quảng Ninh, Quảng Ninh Hà Nội giá chỉ từ 420K
+                            </li>
+                            <li>
+                              Xe ghép Hà Nội Quảng Ninh, Quảng Ninh Hà Nội giá chỉ từ 230k
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -337,7 +348,8 @@
       <div class="row align-items-center">
         <div data-aos="fade-up" class="col-lg-8">
           <h1>Giới thiệu về <b class="text-primary">HAPPY</b> <b> TRIP</b></h1>
-          <p>Nhiệm vụ của chúng tôi là mang đến cho người tiêu dùng một giải pháp di chuyển thông minh</p>
+          <p>Happy Trip - chuyên dịch vụ xe ghép, xe tiện chuyến Hà Nội - Hải Phòng - Quảng Ninh Nhiệm vụ của chúng tôi
+            là mang đến cho người tiêu dùng một giải pháp di chuyển thông minh</p>
           <ol>
             <li>
               An toàn và thuận tiện, đi chung mà không chậm
