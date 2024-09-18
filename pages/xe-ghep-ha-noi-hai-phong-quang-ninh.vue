@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue"
+  import { Icon } from "@iconify/vue"
 
-definePageMeta({
-  layout: "blank"
-})
-useHead({
-  title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
-})
-const index = ref(0)
+  definePageMeta({
+    layout: "blank"
+  })
+  useHead({
+    title: "Happy Trip - Dịch Vụ Xe Ghép, Xe Tiện Chuyến Hà Nội - Hải Phòng - Quảng Ninh Giá Rẻ, An Toàn"
+  })
+  const index = ref(0)
 </script>
 
 <template>
@@ -44,7 +44,7 @@ const index = ref(0)
                 Liên Hệ Ngay 0972970000
               </a>
               <p class="m-0">
-                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Hải Nội Quảng Ninh
+                <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Hà Nội Quảng Ninh
               </p>
               <p class="m-0">
                 <Icon icon="clarity:car-line" class="fs-5 text-primary" /> Xe ghép Quảng Ninh Hải Nội
