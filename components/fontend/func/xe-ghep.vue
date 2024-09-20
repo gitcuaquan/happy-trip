@@ -89,6 +89,7 @@
     new Service().getList((data: any) => {
       service.value = data
       objPreview.service_name = data.data[0].name
+      acceptService()
     })
   })
 
@@ -120,7 +121,15 @@
       listCities.value = listCities.value.filter((item: ICity) => city.includes(item.id))
     }
   }
+  function acceptService() {
+    const rejectService: string[] = ['66947d4c17482239472bb61d', '66947d1e17482239472ba726']
+    if (route.path == '/xe-ghep-vung-tau-can-tho-ho-chi-minh') {
+      service.value.data = service.value.data.filter((item: any) => !rejectService.includes(item.id))
+      console.log("🚀 ~ acceptService ~ service.value:", service.value)
+      objPreview.service_name = service.value.data[0].name
 
+    }
+  }
 
   async function onPreview() {
     if (!checkObj()) return
