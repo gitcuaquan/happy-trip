@@ -24,13 +24,16 @@
           <h5 class="fw-bold text-capitalize">Liên hệ</h5>
           <ul class="list-unstyled m-0">
             <li>
-              Địa chỉ: 218 Lĩnh Nam, Hoàng Mai, Hà Nội
+              Địa chỉ: Số 4, ngách 45, ngõ 218 Lĩnh Nam, Hoàng Mai, Hà Nội
             </li>
             <li>
               SĐT: 0972 97 00 00
             </li>
             <li>
               Email: happytripexpress@gmail.com
+            </li>
+            <li>
+              MST: 0110607661
             </li>
           </ul>
         </div>
@@ -74,6 +77,4 @@
   </footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
