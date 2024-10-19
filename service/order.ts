@@ -167,4 +167,23 @@ export class OrderService {
             }
         })
     }
+    confirmOTP(otp:string){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await $fetch(this.baseUrl.concat('/order/confirm-otp/123'), {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${this.token.value}`
+                    },
+                    params: {
+                        otp
+                    }
+                })
+                resolve(result)
+            } catch (e) {
+                reject(e);
+            }
+        })
+    }
 }
