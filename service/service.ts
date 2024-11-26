@@ -11,12 +11,11 @@ export class Service {
             try {
                 const result = await $fetch(this.baseUrl.concat('/service/list'), {
                     method: "POST",
-                    body: {
-                        is_show: true
-                    },
+                    body: { "is_show": true },
                     params: {
                         page: 1,
-                        limit: -1,
+                        limit: 100,
+                        fields: "id,name,description,transport_type,prices,service_name"
                     }
                 })
                 resolve(result)
