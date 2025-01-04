@@ -482,7 +482,7 @@ function formatDateLocal(time?: any) {
   <div class="text-center my-2">
     <button
       @click="createOrder"
-      :disabled="loading"
+      disabled="true" 
       class="btn btn-primary text-light"
     >
       <Icon icon="entypo:paper-plane" />
