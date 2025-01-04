@@ -343,6 +343,12 @@ function formatDateLocal(time?: any) {
 
 <template>
   <div class="row g-2 mt-3">
+    <div class="col-12">
+      <div class="alert alert-danger" role="alert">
+       Vì hệ thống gặp một số vấn đề về kỹ thuật nên chúng tôi tạm thời tắt chức năng đặt xe trực tuyến.
+       Chân thành xin lỗi quý khách hàng về sự bất tiện này.
+      </div>
+    </div>
     <div class="col-lg-6">
       <div>
         <UiDropdow
