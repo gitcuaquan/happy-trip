@@ -346,7 +346,7 @@ function formatDateLocal(time?: any) {
     <div class="col-12">
       <div class="alert alert-danger" role="alert">
        Vì hệ thống gặp một số vấn đề về kỹ thuật nên chúng tôi tạm thời tắt chức năng đặt xe trực tuyến.
-       Chân thành xin lỗi quý khách hàng về sự bất tiện này.
+       Vui lòng liên hệ trực tiếp qua số điện thoại <a href="tel:0972970000">0972970000</a> để đặt xe.
       </div>
     </div>
     <div class="col-lg-6">
