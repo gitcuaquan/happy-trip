@@ -209,7 +209,7 @@
     try {
       const res = await new OrderService().preview(objPreview);
       objTemp.value = res;
-      tamtinh.value = res.price_guest;
+      tamtinh.value = res?.price_guest_after || 0;
     } catch (e) {
       useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
         dangerouslyHTMLString: true,
