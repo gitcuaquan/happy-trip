@@ -209,11 +209,7 @@ async function onPreview() {
   try {
     const res = await new OrderService().preview(objPreview);
     objTemp.value = res;
-    if ((res?.sub_fees.length || 0) > 0) {
-      tamtinh.value = res.sub_fees?.sub_fee_price || 0;
-    } else {
-      tamtinh.value = res?.price_guest || 0;
-    }
+    tamtinh.value = res.price_guest_after;
   } catch (e) {
     useNuxtApp().$toast.error(`<small>${e.data}</small>`, {
       dangerouslyHTMLString: true,
