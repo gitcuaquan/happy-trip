@@ -91,6 +91,7 @@ onMounted(() => {
   minM.value = date.getMinutes() + 10;
   //@ts-ignore
   new CityService().getList((data: any) => {
+    console.log("🚀 ~ newCityService ~ data:", data)
     listCities.value = data.filter((item: ICity) => item.status == true);
     acceptCity();
   });

@@ -13,7 +13,7 @@
 <template>
 
   <sec-hero>
-    Dịch Vụ Xe Ghép, Xe Tiện Chuyến Giá Rẻ, An Toàn
+    Chào mừng quý khách đến với hệ thống xe tiện chuyến giá rẻ
   </sec-hero>
   <section class="py-5 my-5">
     <div class="container">

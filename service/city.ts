@@ -23,7 +23,7 @@ export class CityService {
                         page: 1,
                         limit: -1,
                         fields: "id,name,status",
-                        sort_by: "id_asc"
+                        sort_by: "name_asc"
                     }
                 })
                 resolve(result)
